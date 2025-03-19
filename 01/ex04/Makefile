@@ -1,7 +1,7 @@
-NAME = needlessViolence
+NAME = sed
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
-SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -6,17 +6,16 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:50:20 by framador          #+#    #+#             */
-/*   Updated: 2025/03/12 20:02:22 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:04:44 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
 
-HumanA::HumanA(std::string str, Weapon weapon)
+HumanA::HumanA(std::string str, Weapon &weapon): _weapon(weapon), _name(str)
 {
-	_weapon = weapon;
-	_name = str;
+
 }
 
 HumanA::~HumanA()

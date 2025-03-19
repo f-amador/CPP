@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:39:27 by framador          #+#    #+#             */
-/*   Updated: 2025/03/12 20:00:55 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:56:35 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Weapon::Weapon(std::string str)
 {
-	_type = str;
+	this->setType(str);
 	std::cout << "Weapon has been created\n";
 }
 
