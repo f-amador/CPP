@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 19:50:44 by framador          #+#    #+#             */
-/*   Updated: 2025/03/19 14:50:30 by framador         ###   ########.fr       */
+/*   Created: 2025/03/19 14:47:23 by framador          #+#    #+#             */
+/*   Updated: 2025/03/22 20:27:42 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-#define HUMANA_HPP
 
-#include "Weapon.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-class HumanA
+#include <iostream>
+
+class Harl
 {
-		Weapon &_weapon;
-		std::string _name;
+	void debug();
+ 	void info();
+ 	void warning();
+ 	void error();
+
 	public:
-		HumanA(std::string str, Weapon &weapon);
-		~HumanA();
-		void attack();
+		Harl();
+		~Harl();
+	
+		void complain(std::string lvl);
 };
 
 #endif

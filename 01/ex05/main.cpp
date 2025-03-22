@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 19:50:44 by framador          #+#    #+#             */
-/*   Updated: 2025/03/19 14:50:30 by framador         ###   ########.fr       */
+/*   Created: 2025/03/22 20:25:00 by framador          #+#    #+#             */
+/*   Updated: 2025/03/22 20:32:08 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-#define HUMANA_HPP
+#include "Harl.hpp"
 
-#include "Weapon.hpp"
-
-class HumanA
+int main(void)
 {
-		Weapon &_weapon;
-		std::string _name;
-	public:
-		HumanA(std::string str, Weapon &weapon);
-		~HumanA();
-		void attack();
-};
-
-#endif
+    Harl test;
+    std::cout << "DEBUG\n";
+    test.complain("DEBUG");
+    std::cout << "\n\nINFO\n";
+    test.complain("INFO");
+    std::cout << "\n\nWARNING\n";
+    test.complain("WARNING");
+    std::cout << "\n\nERROR\n";
+    test.complain("ERROR");
+    std::cout << "\n\nnope\n\n";
+    test.complain("nope");
+}

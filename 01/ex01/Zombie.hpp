@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:27:08 by framador          #+#    #+#             */
-/*   Updated: 2025/03/12 19:53:17 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:50:40 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 #include <string>
 
 
-// Zombie Class
  
 class Zombie
 {
-	private:
 		std::string _name;
 
 	public:

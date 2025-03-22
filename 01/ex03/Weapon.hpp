@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:39:13 by framador          #+#    #+#             */
-/*   Updated: 2025/03/12 20:00:19 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:50:18 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Weapon
 {
-	private:
+
 		std::string _type;
 	public:
 		Weapon(std::string str);

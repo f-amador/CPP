@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:27:08 by framador          #+#    #+#             */
-/*   Updated: 2025/03/12 16:59:01 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:51:30 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 class Zombie
 {
-private:
-	std::string _name;
-public:
-	Zombie(std::string name);
-	~Zombie();
-	void announce();
+		std::string _name;
+
+	public:
+		Zombie(std::string name);
+		~Zombie();
+		void announce();
 };
 
 	Zombie *newZombie(std::string name);

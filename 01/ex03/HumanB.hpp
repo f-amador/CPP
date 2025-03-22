@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:51:36 by framador          #+#    #+#             */
-/*   Updated: 2025/03/17 15:58:55 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:50:27 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 class HumanB
 {
-	private:
 		Weapon *_weapon;
 		std::string _name;
 	public:
