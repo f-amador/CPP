@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 16:48:34 by framador          #+#    #+#             */
-/*   Updated: 2025/03/23 18:59:34 by framador         ###   ########.fr       */
+/*   Created: 2025/03/19 14:47:23 by framador          #+#    #+#             */
+/*   Updated: 2025/03/22 20:27:42 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 
-int	main(void)
+#ifndef HARL_HPP
+#define HARL_HPP
+
+#include <iostream>
+
+class Harl
 {
-	Zombie *test = newZombie("New");
-	std::string name;
+	void debug();
+ 	void info();
+ 	void warning();
+ 	void error();
+
+	public:
+		Harl();
+		~Harl();
 	
-	test->announce();
-	randomChump("Chump");
-	std::cout << "Input a name to create a zombie:";
-	std::cin >> name;
-	delete test;
-	test = newZombie(name);
-	delete test;
-}
+		void complain(std::string lvl);
+};
+
+#endif
