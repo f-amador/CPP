@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:20:48 by framador          #+#    #+#             */
-/*   Updated: 2025/03/25 14:15:31 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:54:51 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,89 @@ int Fixed::toInt(void) const
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 {
-    out << fixed.toFloat(); // Insert the floating-point representation into the stream
+    out << fixed.toFloat();
     return out;
+}
+
+bool    Fixed::operator<(const Fixed &other) const
+{
+    return (this->_point < other._point);
+}
+
+bool    Fixed::operator<=(const Fixed &other) const
+{
+    return (_point <= other._point);
+}
+
+bool    Fixed::operator>(const Fixed &other) const
+{
+    return (this->_point > other._point);
+}
+
+bool    Fixed::operator>=(const Fixed &other) const
+{
+    return (_point >= other._point);
+}
+
+bool    Fixed::operator!=(const Fixed &other) const
+{
+    return (_point != other._point);
+}
+
+bool    Fixed::operator==(const Fixed &other) const
+{
+    return (_point == other._point);
+}
+
+Fixed	Fixed::operator+(const Fixed &other)
+{
+    return (Fixed(this->toFloat() + other.toFloat()));
+}
+
+Fixed	Fixed::operator-(const Fixed &other)
+{
+    return (Fixed(this->toFloat() - other.toFloat()));
+}
+
+Fixed	Fixed::operator/(const Fixed &other)
+{
+    return (Fixed(this->toFloat() / other.toFloat()));
+}
+
+Fixed	Fixed::operator*(const Fixed &other)
+{
+    return (Fixed(this->toFloat() * other.toFloat()));
+}
+
+Fixed	&Fixed::operator++(void)
+{
+	this->_point++;
+	return (*this);
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	this->_point--;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	
+	this->_point++;
+	return (tmp);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	
+	this->_point--;
+	return (tmp);
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+    return (a > b ? a : b);
 }
