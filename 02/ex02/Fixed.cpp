@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:20:48 by framador          #+#    #+#             */
-/*   Updated: 2025/03/25 15:54:51 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:43:58 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,3 +158,8 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
     return (a > b ? a : b);
 }
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+    return (a < b ? a : b);
+}	

@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:20:46 by framador          #+#    #+#             */
-/*   Updated: 2025/03/25 15:51:43 by framador         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:43:48 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Fixed
         Fixed &operator=(const Fixed &other);
         
         const int   &getRawBits();
-        void        setRawBits(int _point);
+        void        setRawBits(int const raw);
         float       toFloat(void) const;
         int         toInt(void) const;      
 
@@ -53,7 +53,7 @@ class Fixed
 		Fixed		operator--(int);
 		
 		static const Fixed		&max(const Fixed &a, const Fixed &b);
-		static Fixed		&min(const Fixed &a, const Fixed &b);
+		static const Fixed		&min(const Fixed &a, const Fixed &b);
 		
         
 };
