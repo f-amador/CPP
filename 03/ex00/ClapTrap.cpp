@@ -6,18 +6,14 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:41:56 by framador          #+#    #+#             */
-/*   Updated: 2025/04/01 17:19:57 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:13:53 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints(10), _damage(0)
 {
-	_name = name;
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_damage = 20;
 	std::cout << "ClapTrap has been constructed\n";
 }
 
