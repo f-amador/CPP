@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:20:48 by framador          #+#    #+#             */
-/*   Updated: 2025/03/25 14:15:31 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:35:56 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed()
 
 Fixed::~Fixed()
 {
-    std::cout << "Default deconstructor called\n";
+    std::cout << "Default destructor called\n";
 }
 
 Fixed::Fixed(const Fixed &copy)

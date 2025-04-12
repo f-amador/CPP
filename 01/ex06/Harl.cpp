@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:48:07 by framador          #+#    #+#             */
-/*   Updated: 2025/03/23 17:16:55 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:00:03 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ void Harl::complain(std::string lvl)
 	}
 	switch (i)
 	{
-	case 0:
-		this->debug();
-	case 1:
-		this->info();
-	case 2:
-		this->warning();
-	case 3:
-		this->error();
-	break;
+		case 0:
+			this->debug();
+		case 1:
+			this->info();
+		case 2:
+			this->warning();
+		case 3:
+			this->error();
+		break;
 	}
 }

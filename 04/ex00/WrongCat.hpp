@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 17:20:46 by framador          #+#    #+#             */
-/*   Updated: 2025/04/10 15:29:22 by framador         ###   ########.fr       */
+/*   Created: 2025/04/12 18:38:50 by framador          #+#    #+#             */
+/*   Updated: 2025/04/12 18:39:21 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
-
+#include "WrongAnimal.hpp"
 #include <iostream>
+#include <string>
 
-class Fixed
+class WrongCat: public WrongAnimal
 {
-    int _point;
-    static const int _bits;
-    
-    public:
-        Fixed();
-        ~Fixed();
-        Fixed(const Fixed &a);
-        const int &getRawBits();
-        Fixed &operator=(const Fixed &other);
-		
-        void setRawBits(int const raw);
+		std::string _type;
+	public:
+		WrongCat();
+		WrongCat(std::string type);
+		~WrongCat();
+		WrongCat(const WrongCat &other);
+		WrongCat &operator=(const WrongCat &other);
+		void	makeSound() const;
 };
 
 #endif

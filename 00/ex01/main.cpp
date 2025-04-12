@@ -6,13 +6,13 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 17:16:06 by framador          #+#    #+#             */
-/*   Updated: 2025/03/11 17:43:22 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:01:31 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
 #include "Contact.hpp"
 #include "Phonebook.hpp"
+#include <iostream>
 
 void	prompter(std::string prompt, Phonebook *book)
 {

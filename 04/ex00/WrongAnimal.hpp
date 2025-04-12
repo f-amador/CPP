@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 17:20:46 by framador          #+#    #+#             */
-/*   Updated: 2025/04/10 15:29:22 by framador         ###   ########.fr       */
+/*   Created: 2025/04/12 18:36:36 by framador          #+#    #+#             */
+/*   Updated: 2025/04/12 18:52:02 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
+#include <string>
 
-class Fixed
+class WrongAnimal
 {
-    int _point;
-    static const int _bits;
-    
-    public:
-        Fixed();
-        ~Fixed();
-        Fixed(const Fixed &a);
-        const int &getRawBits();
-        Fixed &operator=(const Fixed &other);
-		
-        void setRawBits(int const raw);
+	protected:
+		std::string _type;
+	public:
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		virtual ~WrongAnimal();
+		WrongAnimal(const WrongAnimal &other);
+		WrongAnimal &operator=(const WrongAnimal &other);
+
+		void		makeSound() const;
+		std::string	getType() const;
 };
 
 #endif

@@ -6,12 +6,13 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 18:17:36 by framador          #+#    #+#             */
-/*   Updated: 2025/04/01 18:14:56 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:56:59 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
@@ -36,4 +37,9 @@ int main(void)
 	
 	std::cout << "Character: " << a.getName() << "\nHit Points: " << a.getHitPoints()
 	<< "\nEnergy Points: " << a.getEnergyPoints() << "\nDamage: " << a.getDamage() << std::endl;
+	
+	FragTrap c("Ashen One");
+	std::cout << "Character: " << c.getName() << "\nHit Points: " << c.getHitPoints()
+	<< "\nEnergy Points: " << c.getEnergyPoints() << "\nDamage: " << c.getDamage() << std::endl;
+	c.highFiveGuys();
 }

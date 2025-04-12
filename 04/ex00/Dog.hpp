@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 17:20:46 by framador          #+#    #+#             */
-/*   Updated: 2025/04/10 15:29:22 by framador         ###   ########.fr       */
+/*   Created: 2025/04/11 16:40:39 by framador          #+#    #+#             */
+/*   Updated: 2025/04/12 18:45:39 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
-
+#include "Animal.hpp"
 #include <iostream>
+#include <string>
 
-class Fixed
+class Dog: public Animal
 {
-    int _point;
-    static const int _bits;
-    
-    public:
-        Fixed();
-        ~Fixed();
-        Fixed(const Fixed &a);
-        const int &getRawBits();
-        Fixed &operator=(const Fixed &other);
+		std::string _type;
+	public:
+		Dog();
+		Dog(std::string type);
+		~Dog();
+		Dog(const Dog &other);
+		Dog &operator=(const Dog &other);
 		
-        void setRawBits(int const raw);
+		void			makeSound() const;
+		std::string		getType() const;
 };
 
 #endif

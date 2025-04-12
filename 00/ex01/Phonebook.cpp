@@ -6,11 +6,14 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 17:10:24 by framador          #+#    #+#             */
-/*   Updated: 2025/03/11 17:48:25 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:09:35 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Phonebook.hpp"
+#include <string>
+#include <iomanip>
+#include <cstdlib>
 
 Phonebook::Phonebook(void)
 {

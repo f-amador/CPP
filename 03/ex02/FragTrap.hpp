@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:39:23 by framador          #+#    #+#             */
-/*   Updated: 2025/04/02 18:04:40 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:51:48 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class FragTrap: public ClapTrap
 		~FragTrap();
 		FragTrap(const FragTrap &copy);
 		FragTrap &operator=(const FragTrap &other);
+	
+		void	highFiveGuys();
 };
 
 
