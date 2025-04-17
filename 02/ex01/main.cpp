@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 18:26:42 by framador          #+#    #+#             */
-/*   Updated: 2025/04/10 15:37:24 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:39:47 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main( void )
 {
     Fixed a;
     Fixed const b( 10 );
-    Fixed const c( 42.52f );
+    Fixed const c(8388609);
     Fixed const d( b );
     a = Fixed( 1234.4321f );
 

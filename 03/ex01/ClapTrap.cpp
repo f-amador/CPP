@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:41:56 by framador          #+#    #+#             */
-/*   Updated: 2025/04/01 18:10:55 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:10:44 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ if (_energyPoints > 0 && _hitPoints > 0)
 	}
 }
 
-const std::string 	&ClapTrap::getName() const
+std::string 	ClapTrap::getName() const
 {
 	return (_name);
 }

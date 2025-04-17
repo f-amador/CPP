@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:20:46 by framador          #+#    #+#             */
-/*   Updated: 2025/04/10 15:38:28 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:55:36 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed
         Fixed(const float value);
         Fixed(const Fixed &copy);
         
-        const int &getRawBits();
+        int getRawBits() const;
         Fixed &operator=(const Fixed &other);
         void setRawBits(int const raw);
         float toFloat(void) const;

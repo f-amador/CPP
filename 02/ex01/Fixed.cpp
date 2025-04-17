@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:20:48 by framador          #+#    #+#             */
-/*   Updated: 2025/04/10 15:35:56 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:56:17 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed::Fixed(const Fixed &copy)
     *this = copy;
 }
 
-const int &Fixed::getRawBits()
+int Fixed::getRawBits() const
 {
     return (_point);    
 }
@@ -54,7 +54,6 @@ Fixed::Fixed (const float value)
         _point = other._point;
     return *this;
 }
-
 void Fixed::setRawBits(int point)
 {
     _point = point;

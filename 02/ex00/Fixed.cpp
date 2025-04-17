@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 17:20:48 by framador          #+#    #+#             */
-/*   Updated: 2025/03/24 19:41:40 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:06:49 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::Fixed(const Fixed &copy)
     _point = copy._point;
 }
 
-const int &Fixed::getRawBits()
+int Fixed::getRawBits() const
 {
     return (_point);    
 }

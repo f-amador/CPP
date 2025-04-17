@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 21:20:12 by framador          #+#    #+#             */
-/*   Updated: 2025/04/01 17:23:12 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:56:52 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class ClapTrap
 		void takeDamage(unsigned int points);
 		void beRepaired(unsigned int points);
 		
-		const std::string 	&getName() const;
+		std::string 		getName() const;
 		int					getHitPoints() const;
 		int					getEnergyPoints() const;
 		int					getDamage() const;

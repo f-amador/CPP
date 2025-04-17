@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 16:40:37 by framador          #+#    #+#             */
-/*   Updated: 2025/04/15 15:35:46 by framador         ###   ########.fr       */
+/*   Created: 2025/04/11 16:40:39 by framador          #+#    #+#             */
+/*   Updated: 2025/04/15 15:58:50 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
+#include "Brain.hpp"
 #include "Animal.hpp"
 #include <iostream>
 #include <string>
 
-class Cat: public Animal
+class Dog: public Animal
 {
+		Brain *_brain;
 		std::string _type;
 	public:
-		Cat();
-		Cat(std::string type);
-		~Cat();
-		Cat(const Cat &other);
-		Cat &operator=(const Cat &other);
+		Dog();
+		Dog(std::string type);
+		~Dog();
+		Dog(const Dog &other);
+		Dog &operator=(const Dog &other);
 		
 		void			makeSound() const;
 		std::string		getType() const;
+		Brain	&getBrain() const;
 };
 
 #endif
