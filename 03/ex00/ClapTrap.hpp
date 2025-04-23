@@ -14,6 +14,7 @@
 #define CLAPTRAP_HPP
 
 #include <iostream>
+#include <string>
 
 class ClapTrap
 {
@@ -32,7 +33,7 @@ class ClapTrap
 		void takeDamage(unsigned int points);
 		void beRepaired(unsigned int points);
 		
-		std::string 		getName() const;
+		const std::string 	&getName();
 		int					getHitPoints() const;
 		int					getEnergyPoints() const;
 		int					getDamage() const;

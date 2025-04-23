@@ -18,28 +18,32 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
+	//const Animal* meta = new Animal();
 	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Animal* i;
+	i = j;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
-	meta->makeSound();
-	const WrongAnimal *wrong = new WrongCat();
-	wrong->makeSound();
-
+	//meta->makeSound();
 	Dog basic;
 	Dog tmp = basic;
+	const WrongAnimal *wrong = new WrongCat();
+	wrong->makeSound();
+	basic.getBrain().setIdea(0, "HELLO WORLD\n");
+	basic.getBrain().printIdeas();
+	tmp.getBrain().setIdea(1, "Same Brain?\n");
+	tmp.getBrain().printIdeas();
 	delete wrong;
 	delete i;
-	delete j;
-	delete meta;
+	//delete j;
+	//delete meta;
 
 	const Animal* jk = new Dog();
 	const Animal* ik = new Cat();
-	static_cast<const Dog*>(jk)->getBrain().setIdea(0, "HELLO WORLD\n");
-	static_cast<const Dog*>(jk)->getBrain().printIdeas();
+	static_cast<const Dog*>(i)->getBrain().setIdea(0, "HELLO WORLD\n");
+	static_cast<const Dog*>(i)->getBrain().printIdeas();
 
 	delete ik;
 	delete jk;

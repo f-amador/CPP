@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 15:36:04 by framador          #+#    #+#             */
-/*   Updated: 2025/04/15 15:54:54 by framador         ###   ########.fr       */
+/*   Created: 2025/04/11 16:40:37 by framador          #+#    #+#             */
+/*   Updated: 2025/04/15 15:58:56 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
+#include "Brain.hpp"
+#include "Animal.hpp"
 #include <iostream>
+#include <string>
 
-class Brain
+class Cat: public Animal
 {
-    private:
-        std::string _ideas[100];
-    public:
-        Brain();
-        ~Brain();
-        Brain(const Brain &other);
-		Brain &operator=(const Brain &other);
-        void                setIdea(int index, const std::string &idea);
-        const std::string   &getIdea(int index) const;
-        const std::string   &getIdeas() const;
-        void                printIdeas() const;
+		Brain *_brain;
+		std::string _type;
+	public:
+		Cat();
+		Cat(std::string type);
+		~Cat();
+		Cat(const Cat &other);
+		Cat &operator=(const Cat &other);
+		
+		void			makeSound() const;
+		std::string		getType() const;
+		
 };
 
 #endif

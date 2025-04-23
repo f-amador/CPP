@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 15:36:04 by framador          #+#    #+#             */
-/*   Updated: 2025/04/15 15:54:54 by framador         ###   ########.fr       */
+/*   Created: 2025/04/10 17:20:13 by framador          #+#    #+#             */
+/*   Updated: 2025/04/15 15:33:44 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
+#include <string>
 
-class Brain
+class Animal
 {
-    private:
-        std::string _ideas[100];
-    public:
-        Brain();
-        ~Brain();
-        Brain(const Brain &other);
-		Brain &operator=(const Brain &other);
-        void                setIdea(int index, const std::string &idea);
-        const std::string   &getIdea(int index) const;
-        const std::string   &getIdeas() const;
-        void                printIdeas() const;
+	protected:
+		std::string _type;
+	public:
+		Animal();
+		Animal(std::string type);
+		virtual ~Animal();
+		Animal(const Animal &other);
+		Animal &operator=(const Animal &other);
+
+		virtual void			makeSound() const = 0;
+		virtual std::string		getType() const;
 };
 
 #endif

@@ -72,7 +72,7 @@ if (_energyPoints > 0 && _hitPoints > 0)
 	}
 }
 
-std::string 	ClapTrap::getName() const
+const std::string 	&ClapTrap::getName()
 {
 	return (_name);
 }

@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 15:36:04 by framador          #+#    #+#             */
-/*   Updated: 2025/04/15 15:54:54 by framador         ###   ########.fr       */
+/*   Created: 2025/04/12 18:38:50 by framador          #+#    #+#             */
+/*   Updated: 2025/04/12 18:39:21 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
+#include "WrongAnimal.hpp"
 #include <iostream>
+#include <string>
 
-class Brain
+class WrongCat: public WrongAnimal
 {
-    private:
-        std::string _ideas[100];
-    public:
-        Brain();
-        ~Brain();
-        Brain(const Brain &other);
-		Brain &operator=(const Brain &other);
-        void                setIdea(int index, const std::string &idea);
-        const std::string   &getIdea(int index) const;
-        const std::string   &getIdeas() const;
-        void                printIdeas() const;
+		std::string _type;
+	public:
+		WrongCat();
+		WrongCat(std::string type);
+		~WrongCat();
+		WrongCat(const WrongCat &other);
+		WrongCat &operator=(const WrongCat &other);
+		void	makeSound() const;
 };
 
 #endif
