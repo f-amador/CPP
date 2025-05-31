@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 17:00:57 by framador          #+#    #+#             */
-/*   Updated: 2025/03/11 17:05:50 by framador         ###   ########.fr       */
+/*   Updated: 2025/05/31 10:39:13 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,46 +28,46 @@ Contact::~Contact()
 
 void	Contact::setNumber(int number)
 {
-	this->number = number;
+	_number = number;
 }
 
 void Contact::setFirstName(std::string s)
 {
-	this->firstname = s;
+	_firstname = s;
 }
 void Contact::setLastName(std::string s)
 {
-	this->lastname = s;
+	_lastname = s;
 }
 void Contact::setNickname(std::string s)
 {
-	this->nickname = s;
+	_nickname = s;
 }
 void Contact::setSecret(std::string s)
 {
-	this->secret = s;
+	_secret = s;
 }
 int	Contact::getNumber()
 {
-	return this->number;
+	return _number;
 }
 
-std::string	Contact::getFirstName()
+const std::string	&Contact::getFirstName()
 {
-	return this->firstname;
+	return _firstname;
 }
 
-std::string	Contact::getLastName()
+const std::string	&Contact::getLastName()
 {
-	return this->lastname;
+	return _lastname;
 }
 
-std::string	Contact::getNickname()
+const std::string	&Contact::getNickname()
 {
-	return this->nickname;
+	return _nickname;
 }
 
-std::string	Contact::getSecret()
+const std::string	&Contact::getSecret()
 {
-	return this->secret;
+	return _secret;
 }

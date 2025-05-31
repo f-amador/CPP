@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:45:34 by framador          #+#    #+#             */
-/*   Updated: 2025/03/11 17:29:29 by framador         ###   ########.fr       */
+/*   Updated: 2025/05/31 10:38:32 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 class	Contact
 {
-	int number;
-	std::string firstname;
-	std::string lastname;
-	std::string nickname;
-	std::string secret;
+	int _number;
+	std::string _firstname;
+	std::string _lastname;
+	std::string _nickname;
+	std::string _secret;
 
 	public:
 	Contact();
@@ -35,10 +35,10 @@ class	Contact
 	
 	//Get values
 	int getNumber();
-	std::string getFirstName();
-	std::string getLastName();
-	std::string getNickname();
-	std::string getSecret();
+	const std::string &getFirstName();
+	const std::string &getLastName();
+	const std::string &getNickname();
+	const std::string &getSecret();
 	
 };
 

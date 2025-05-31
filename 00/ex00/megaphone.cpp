@@ -6,35 +6,31 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 19:47:43 by framador          #+#    #+#             */
-/*   Updated: 2025/03/08 16:50:02 by framador         ###   ########.fr       */
+/*   Updated: 2025/05/31 10:36:42 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "megaphone.hpp"
-
-void	str_to_upper(char *s)
-{
-	while (*s)
-	{
-		if (*s >= 'a' && *s <= 'z')
-			*s -= 32;
-		s++;
-	}
-}
+#include <iostream>
+#include <string>
 
 int	main(int argc, char *argv[])
 {
-	int i = 0;
+	int j;
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
-	while (i < argc)
+	for (int i = 1; i < argc ;)
 	{
-		str_to_upper(argv[i]);
-		std::cout << argv[i];
-		if (i++ != argc - 1)
+		j = 0;
+		for(; argv[i][j]; j++)
+		{
+			argv[i][j] = std::toupper(argv[i][j]);
+			std::cout << argv[i][j];
+			
+		}
+			if (i++ != argc - 1)
 			std::cout << " ";
 	}
 	std::cout << std::endl;
