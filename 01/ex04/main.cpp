@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:15:13 by framador          #+#    #+#             */
-/*   Updated: 2025/03/17 18:02:40 by framador         ###   ########.fr       */
+/*   Updated: 2025/05/31 11:06:32 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	searchNReplace(std::ifstream &inputFile, std::string name, std::string s1, 
 	std::string line;
 	size_t pos;
 
+	if (s1.empty() || !s1[0])
+	{
+		std::cerr << "Error nothing to search.\n";
+		return ;
+	}
 	std::ofstream outputFile((name + ".replace").c_str());
 	if (!outputFile.is_open())
 	{
