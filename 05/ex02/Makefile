@@ -1,7 +1,7 @@
-NAME = BSP
+NAME = Shrub
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC = main.cpp Fixed.cpp
+SRC =  Bureaucrat.cpp Form.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
