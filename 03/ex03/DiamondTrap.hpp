@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 16:39:23 by framador          #+#    #+#             */
-/*   Updated: 2025/06/01 16:39:41 by framador         ###   ########.fr       */
+/*   Created: 2025/06/01 16:20:33 by framador          #+#    #+#             */
+/*   Updated: 2025/06/01 17:04:01 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class FragTrap: public virtual ClapTrap
+class DiamondTrap: public ScavTrap, public FragTrap
 {
-	public:
-		FragTrap();
-		FragTrap(std::string name);
-		~FragTrap();
-		FragTrap(const FragTrap &copy);
-		FragTrap &operator=(const FragTrap &other);
-	
-		void	highFiveGuys();
-};
+	std::string _name;
 
+	public:
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		~DiamondTrap();
+		DiamondTrap(const DiamondTrap &other);
+		DiamondTrap &operator=(const DiamondTrap &other);
+
+		void attack(const std::string& target);
+		void whoAmI();
+};
 
 #endif

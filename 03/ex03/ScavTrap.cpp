@@ -6,11 +6,17 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:19:00 by framador          #+#    #+#             */
-/*   Updated: 2025/04/01 17:35:11 by framador         ###   ########.fr       */
+/*   Updated: 2025/06/01 16:48:14 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+
+ScavTrap::ScavTrap(): ClapTrap()
+{
+	std::cout << "ScavTrap Constructer called\n";
+}
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {

@@ -6,11 +6,16 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:41:13 by framador          #+#    #+#             */
-/*   Updated: 2025/04/09 18:57:37 by framador         ###   ########.fr       */
+/*   Updated: 2025/06/01 16:40:22 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap(): ClapTrap()
+{
+	std::cout << "FragTrap Constructor Called\n";
+}
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
