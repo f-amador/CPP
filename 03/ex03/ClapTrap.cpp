@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:41:56 by framador          #+#    #+#             */
-/*   Updated: 2025/06/01 16:00:41 by framador         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:10:30 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap has been destroyed\n";
 }
-
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
