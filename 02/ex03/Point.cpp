@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:42:46 by framador          #+#    #+#             */
-/*   Updated: 2025/05/31 17:43:28 by framador         ###   ########.fr       */
+/*   Updated: 2025/06/01 12:24:04 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ float Point::getX(void) const
 
 float Point::getY(void) const
 {
-	return (_x.toFloat());
+	return (_y.toFloat());
 }
 
 Point Point::operator-(const Point &other) const
