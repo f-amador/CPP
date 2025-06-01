@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:41:56 by framador          #+#    #+#             */
-/*   Updated: 2025/06/01 16:00:41 by framador         ###   ########.fr       */
+/*   Updated: 2025/06/01 16:02:29 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(100), _energyPoint
 
 	std::cout << "ClapTrap has been constructed\n";
 }
+
 
 ClapTrap::~ClapTrap()
 {
