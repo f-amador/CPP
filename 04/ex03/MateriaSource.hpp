@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 15:17:11 by framador          #+#    #+#             */
-/*   Updated: 2025/06/04 11:50:22 by framador         ###   ########.fr       */
+/*   Created: 2025/06/04 12:31:54 by framador          #+#    #+#             */
+/*   Updated: 2025/06/04 12:45:32 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
-Character::Character(): _name(NULL)
-{}
+#include "IMateriaSource.hpp"
 
-Character::Character(std::string name): _name(name)
-{}
-Character::~Character()
-{}
-
-const std::string  &Character::getName()
+class MateriaSource: public IMateriaSource
 {
-	return (_name);
-}
+	std::string _type;
+	MateriaSource();
+	MateriaSource(std::string type);
+	void learnMateria(AMateria *);
+	AMateria *createMateria(const std::string &type);	
+};
 
-void Character::equip(AMateria *m)
-{
-// 	for(int i = 0; i < 4, i++;)
-// 	{
-// 		if ()
-// 	}
-}
-
-void	Character::unequip(int idx)
-{
-	;
-}
-
-void	Character::use(int idx, ICharacter &target)
-{
-	;
-}
+#endif

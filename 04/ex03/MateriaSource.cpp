@@ -1,44 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 15:17:11 by framador          #+#    #+#             */
-/*   Updated: 2025/06/04 11:50:22 by framador         ###   ########.fr       */
+/*   Created: 2025/06/04 12:43:07 by framador          #+#    #+#             */
+/*   Updated: 2025/06/04 13:41:19 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "MateriaSource.hpp"
 
-Character::Character(): _name(NULL)
-{}
-
-Character::Character(std::string name): _name(name)
-{}
-Character::~Character()
-{}
-
-const std::string  &Character::getName()
+MateriaSource::MateriaSource(std::string type)
 {
-	return (_name);
-}
-
-void Character::equip(AMateria *m)
-{
-// 	for(int i = 0; i < 4, i++;)
-// 	{
-// 		if ()
-// 	}
-}
-
-void	Character::unequip(int idx)
-{
-	;
-}
-
-void	Character::use(int idx, ICharacter &target)
-{
-	;
+	if (type == "ice")
 }
