@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 18:17:29 by framador          #+#    #+#             */
-/*   Updated: 2025/06/03 14:21:02 by framador         ###   ########.fr       */
+/*   Created: 2025/06/03 15:17:11 by framador          #+#    #+#             */
+/*   Updated: 2025/06/03 15:38:15 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#include "Character.hpp"
 
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
+Character::Character(): _name(NULL)
+{}
 
-class Ice: public AMateria
+Character::Character(std::string name): _name(name)
+{}
+Character::~Character()
+{}
+
+const std::string  &Character::getName()
 {
-	public:
-		Ice();
-		~Ice();
-		Ice(const Ice &other);
-		const Ice &operator=(const Ice &other);
-		std::string const & getType() const;
-		Ice *clone() const override;
-		void use(ICharacter& target);
-};
+	return (_name);
+}
 
-#endif
+// void Character::equip(AMateria *m)
+// {
+// 	for(int i = 0; i < 4, i++;)
+// 	{
+// 		if ()
+// 	}
+// }
+
+void	Character::unequip(int idx)
+{
+	;
+}
+
+void	Character::use(int idx, ICharacter &target)
+{
+	;
+}
