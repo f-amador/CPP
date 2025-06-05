@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 16:20:31 by framador          #+#    #+#             */
-/*   Updated: 2025/06/01 17:03:10 by framador         ###   ########.fr       */
+/*   Updated: 2025/06/05 15:03:34 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void	DiamondTrap::attack(const std::string& target)
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << " Hello my name is " << _name << " and " << ScavTrap::_name << " is the one I inherit from\n";
+	std::cout << " Hello my name is " << _name << " and " << ClapTrap::_name << " is the one I inherit from\n";
 }
