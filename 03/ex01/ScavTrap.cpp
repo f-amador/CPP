@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:19:00 by framador          #+#    #+#             */
-/*   Updated: 2025/04/10 15:09:03 by framador         ###   ########.fr       */
+/*   Updated: 2025/06/06 10:53:03 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap has been destroyed\n";
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
+ScavTrap::ScavTrap(const ScavTrap &copy)
 {
 	std::cout << "ScavTrap copy constructor called\n";
-	*this = copy;
+	_name = copy._name;
+	_hitPoints = copy._hitPoints;
+	_energyPoints = copy._energyPoints;
+	_damage = copy._damage;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)

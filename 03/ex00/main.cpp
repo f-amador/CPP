@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 18:17:36 by framador          #+#    #+#             */
-/*   Updated: 2025/04/01 16:32:10 by framador         ###   ########.fr       */
+/*   Updated: 2025/06/06 10:54:05 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ int main(void)
 	b.beRepaired(10);
 	std::cout << "Character: " << b.getName() << "\nHit Points: " << b.getHitPoints()
 	<< "\nEnergy Points: " << b.getEnergyPoints() << "\nDamage: " << b.getDamage() << std::endl;
-	;
 }

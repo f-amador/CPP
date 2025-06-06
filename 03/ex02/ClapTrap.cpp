@@ -6,11 +6,16 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:41:56 by framador          #+#    #+#             */
-/*   Updated: 2025/06/01 16:18:48 by framador         ###   ########.fr       */
+/*   Updated: 2025/06/06 10:43:42 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+	std::cout << "ClapTrap Constructor called\n";
+}
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(100), _energyPoints(100), _damage(30)
 {
@@ -28,10 +33,10 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
     std::cout << "Claptrap copy constructor called\n";
-    *this = copy;
 	_name = copy._name;
 	_hitPoints = copy._hitPoints;
 	_energyPoints = copy._energyPoints;
+    _damage = copy._damage;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
