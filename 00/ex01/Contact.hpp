@@ -21,9 +21,9 @@ class	Contact
 	std::string _firstname;
 	std::string _lastname;
 	std::string _nickname;
-	std::string _secret;
 
 	public:
+	std::string _secret;
 	Contact();
 	~Contact();
 	//Set values

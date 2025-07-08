@@ -21,7 +21,9 @@ int main(void)
     a.setRawBits(420);
     std::cout << "Changed a to 420" <<  std::endl;
     Fixed b( a );
-	Fixed d = b;
+	Fixed d;
+
+    d.setRawBits(b.getRawBits());
     std::cout << b.getRawBits() << std::endl;
     std::cout << ref << std::endl;
     Fixed c;

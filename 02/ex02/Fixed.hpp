@@ -19,7 +19,7 @@
 class Fixed
 {
     int _point;
-    static const int _bits = 8;
+    static const int _bits = 2;
     
     public:
         Fixed();

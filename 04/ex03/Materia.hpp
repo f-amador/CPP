@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Materia.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 15:17:12 by framador          #+#    #+#             */
-/*   Updated: 2025/06/03 15:32:57 by framador         ###   ########.fr       */
+/*   Created: 2025/06/06 16:34:09 by framador          #+#    #+#             */
+/*   Updated: 2025/06/06 16:47:08 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef MATERIA_HPP
+#define MATERIA_HPP
 
-#include "ICharacter.hpp"
-#include "Materia.hpp"
+#include "AMateria.hpp"
+#include <iostream>
 
-class Character: public ICharacter
+class Materia: public AMateria
 {
-	std::string _name;
-	Materia _spells[4];
-
 	public:
-		Character();
-		Character(std::string name);
-		~Character();
-		const std::string &getName() const override;
-		const Materia &getSpell();
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target) override;
+		Materia();
+		~Materia();
+		Materia(const Materia &other);
+		const Materia &operator=(const Materia &other);
+		AMateria* clone() const;
+		void use(ICharacter& target);
+
 };
 
 #endif

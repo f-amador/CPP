@@ -20,17 +20,18 @@ Character::Character(std::string name): _name(name)
 Character::~Character()
 {}
 
-const std::string  &Character::getName()
+const std::string  &Character::getName() const
 {
 	return (_name);
 }
 
 void Character::equip(AMateria *m)
 {
-// 	for(int i = 0; i < 4, i++;)
-// 	{
-// 		if ()
-// 	}
+ 	for(int i = 0; i < 4, i++;)
+ 	{
+ 		if (!&_spells[i])
+			_spells[i] = m;
+ 	}
 }
 
 void	Character::unequip(int idx)
@@ -40,5 +41,8 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter &target)
 {
-	;
+	if (idx > 3 || idx < 0)
+		return ;
+	if (&_spells[idx])
+		_spells[idx].use(target);
 }

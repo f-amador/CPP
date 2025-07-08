@@ -31,13 +31,13 @@ void	randomChump(std::string name)
 
 int	main(void)
 {
-	Zombie *test = newZombie("New");
+	//Zombie *test = newZombie("New");
 	std::string name;
 	int	N;
 	
-	test->announce();
-	randomChump("Chump");
-	delete test;
+	//test->announce();
+	//randomChump("Chump");
+	//delete test;
 
 	std::cout << "Input a name to create a zombie horde:";
 	std::cin >> name;

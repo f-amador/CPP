@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Materia.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 15:17:12 by framador          #+#    #+#             */
-/*   Updated: 2025/06/03 15:32:57 by framador         ###   ########.fr       */
+/*   Created: 2025/06/06 16:46:20 by framador          #+#    #+#             */
+/*   Updated: 2025/06/06 16:59:09 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
-
-#include "ICharacter.hpp"
 #include "Materia.hpp"
 
-class Character: public ICharacter
+Materia::Materia()
 {
-	std::string _name;
-	Materia _spells[4];
+	std::cout << "Materia Default Constructor called\n";
+}
 
-	public:
-		Character();
-		Character(std::string name);
-		~Character();
-		const std::string &getName() const override;
-		const Materia &getSpell();
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target) override;
-};
+Materia::~Materia()
+{
+	std::cout << "Materia Default Destructor called\n";
+}
 
-#endif
+Materia::Materia(const Materia &other)
+{
+	_type = other._type;
+}
+
+const Materia &Materia::operator=(const Materia &other)
+{
+	if (this != &other)
+		_type = other._type;
+	return (*this);
+}
+

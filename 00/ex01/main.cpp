@@ -28,7 +28,10 @@ int	main(void)
 {
 	std::string prompt;
 	static Phonebook	book;
+	Contact Joao;
 	
+
+	Joao.setFirstName("carlos");
 	while (1)
 	{
 		std::cout << "Welcome to Phonebook\n";
