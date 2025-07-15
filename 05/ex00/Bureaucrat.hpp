@@ -43,6 +43,8 @@ class Bureaucrat {
     	};
 		const std::string &getName() const;
 		int getGrade() const;
+		void incGrade();
+		void decGrade();
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &Bureaucrat);

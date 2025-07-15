@@ -15,7 +15,7 @@
 
 Form::Form(std::string name, int sign, int exec): _name(name),_check(0), _sign(sign), _exec(exec) 
 {
-	if (_sign > 125 || _exec > 125)
+	if (_sign > 150 || _exec > 150)
 		throw(GradeTooLowException());
 	else if (_sign < 1 || _exec < 1)
 		throw (GradeTooHighException());

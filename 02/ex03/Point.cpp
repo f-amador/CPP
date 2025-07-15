@@ -26,6 +26,10 @@ Point::Point(const Point &other):_x(other._x), _y(other._y)
 {
 	//std::cout << "Point Copy Constructor Called\n";	
 }
+Point &Point::operator=(const Point &other)
+{
+	if
+}
 
 Point::~Point()
 {

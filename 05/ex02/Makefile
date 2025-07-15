@@ -1,7 +1,7 @@
 NAME = Shrub
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC =  Bureaucrat.cpp Form.cpp main.cpp
+SRC =  Bureaucrat.cpp AForm.cpp main.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

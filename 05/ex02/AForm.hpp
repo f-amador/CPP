@@ -18,35 +18,37 @@ class Bureaucrat;
 
 class AForm
 {
-	const	std::string 	_name;
-	bool					_check;
-	const int 				_sign;
-	const int 				_exec;
+	protected:
+		const	std::string 	_name;
+		bool					_check;
+		const int 				_sign;
+		const int 				_exec;
 	
 	public:
-	AForm(std::string name, int sign, int check);
-	~AForm();
-	AForm(const Form &other);
-	AForm &operator=(const AForm &other);
-	
-	class GradeTooHighException : public std::exception {
-		public:
-			virtual const char* what() const throw();
-	};
-	
-	class GradeTooLowException : public std::exception {
-		public:
-			virtual const char* what() const throw();
-	};
+		AForm():_sign(150), _exec(150) {};
+		AForm(std::string name, int sign, int check);
+		~AForm();
+		AForm(const AForm &other);
+		AForm &operator=(const AForm &other);
+		
+		class GradeTooHighException : public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
+		
+		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
 
-	const 	std::string &getName() const;
-	bool 	getCheck() const;
-	int 	getSign() const;
-	int		getExec() const;
-	void	beSigned(Bureaucrat &worker);
+		const 	std::string &getName() const;
+		bool 	getCheck() const;
+		int 	getSign() const;
+		int		getExec() const;
+		void	beSigned(Bureaucrat &worker);
 
 		
 };
-std::ostream &operator<<(std::ostream &out, const Form &Form);
+std::ostream &operator<<(std::ostream &out, const AForm &Form);
 
 #endif

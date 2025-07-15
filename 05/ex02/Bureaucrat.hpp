@@ -17,6 +17,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
 #include "AForm.hpp"
 
 class AForm;
@@ -34,7 +37,8 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat &other);
 		Bureaucrat &operator=(const Bureaucrat &other);
 		
-		
+		void incGrade();
+		void decGrade();
 		class GradeTooHighException : public std::exception {
     		public:
         		virtual const char* what() const throw();
@@ -47,6 +51,7 @@ class Bureaucrat {
 		const	std::string	&getName() const;
 		void				signForm(AForm &form);
 		int 				getGrade() const;
+		void				execute(const Bureaucrat &executor);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &Bureaucrat);

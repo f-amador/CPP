@@ -11,7 +11,10 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <cstdlib>
 #include <climits>
 
@@ -56,10 +59,14 @@ int main(void)
 		//return (1);
 	}
 		std::cout << "\n\n";
-		Form form("Teste", 1, 1);
+		AForm form("Teste", 1, 1);
 		std::cout << "\n\n";
 		a.signForm(form);
 		b.signForm(form);
 		std::cout << "\n\n";
-
+	ShrubberyCreationForm("teste");
+	for (int i = 0; i < 4 ; i++)
+		RobotomyRequestForm("teste");
+	PresidentialPardonForm("Andrade");
+	std::cout << "\n\n";
 }

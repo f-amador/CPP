@@ -34,6 +34,8 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat &other);
 		Bureaucrat &operator=(const Bureaucrat &other);
 		
+		void incGrade();
+		void decGrade();
 		
 		class GradeTooHighException : public std::exception {
     		public:
