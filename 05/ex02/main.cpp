@@ -21,12 +21,11 @@
 int main(void)
 {
 
-	Bureaucrat a(44);
+	Bureaucrat a(150);
 	Bureaucrat b(1);
 	try
 	{
 		std::cout << "\n\n";
-
 		a = 220;
 		std::cout << "\n\n";
 
@@ -41,10 +40,10 @@ int main(void)
 		std::cerr << a.getName() << "\nERROR: " << e.what();
 		//return (1);
 	}
-		try
+	try
 	{
 		std::cout << "\n\n";
-		b = -10;
+		b.incGrade();
 		std::cout << "\n\n";
 
 	}
@@ -58,15 +57,18 @@ int main(void)
 		std::cerr << b.getName() <<"\nERROR: " << e.what();
 		//return (1);
 	}
-		std::cout << "\n\n";
-		AForm form("Teste", 1, 1);
-		std::cout << "\n\n";
-		a.signForm(form);
-		b.signForm(form);
-		std::cout << "\n\n";
-	ShrubberyCreationForm("teste");
-	for (int i = 0; i < 4 ; i++)
-		RobotomyRequestForm("teste");
-	PresidentialPardonForm("Andrade");
-	std::cout << "\n\n";
+	ShrubberyCreationForm teste;
+	std::cout << "here";
+	try
+	{
+		teste.execute(a);
+		teste.beSigned(b);
+		teste.execute(b);
+		teste.beSigned(a);
+	}
+	catch(AForm::GradeTooLowException& e)
+	{
+		std::cerr << "Error Couldn't exec\nReason:" << e.what() << '\n';
+	}
+	
 }

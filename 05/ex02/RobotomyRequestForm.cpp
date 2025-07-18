@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
+void RobotomyRequestForm::executeForm(std::string target)
 {
     static bool seeded = false;
     if (!seeded)

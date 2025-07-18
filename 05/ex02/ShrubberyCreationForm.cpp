@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+void ShrubberyCreationForm::executeForm(std::string target)
 {
 
     std::ofstream shrub((target + "_shrubbery").c_str());

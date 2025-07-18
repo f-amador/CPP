@@ -105,11 +105,6 @@ void	Bureaucrat::signForm(AForm &form)
 	
 }
 
-void	Bureaucrat::execute(const Bureaucrat &executor)
-{
-	
-}
-
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &worker)
 {
 	out << worker.getName() << ", bureaucrat grade " << worker.getGrade();

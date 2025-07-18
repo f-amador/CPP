@@ -51,7 +51,6 @@ class Bureaucrat {
 		const	std::string	&getName() const;
 		void				signForm(AForm &form);
 		int 				getGrade() const;
-		void				execute(const Bureaucrat &executor);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &Bureaucrat);

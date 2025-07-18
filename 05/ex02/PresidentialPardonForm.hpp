@@ -3,7 +3,7 @@
 class PresidentialPardonForm: public AForm
 {
     public:
-        PresidentialPardonForm(){};
-        PresidentialPardonForm(std::string target);
+        PresidentialPardonForm(): AForm("presi", 25, 5) {};
+        void executeForm(std::string target);
         ~PresidentialPardonForm(){};
 };

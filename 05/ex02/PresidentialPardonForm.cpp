@@ -1,7 +1,7 @@
 #include "PresidentialPardonForm.hpp"
 
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target)
+void PresidentialPardonForm::executeForm(std::string target)
 {  
     std::cout << target + " has been pardoned by Zaphod Beeblebrox\n";
 }

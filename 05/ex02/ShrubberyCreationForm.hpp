@@ -3,7 +3,7 @@
 class ShrubberyCreationForm: public AForm
 {
     public:
-        ShrubberyCreationForm() {};
-        ShrubberyCreationForm(std::string target);
+        ShrubberyCreationForm(): AForm("shrub", 145, 137) {};
         ~ShrubberyCreationForm() {};
+        void executeForm(std::string target);
 };

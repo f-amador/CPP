@@ -77,6 +77,23 @@ void	AForm::beSigned(Bureaucrat &worker)
 			throw AForm::GradeTooLowException();
 }
 
+void	AForm::execute(const Bureaucrat &executor)
+{
+	if (_sign)
+	{
+		if (executor.getGrade() <= _exec)
+			this->executeForm(executor.getName());
+
+		else
+		{
+			std::cout << executor.getGrade() << "\nGrade:"  <<executor.getName() <<  "\n";
+			std::cout << "Meu pau na tua mao\n";
+			throw AForm::GradeTooLowException();
+		}
+	}
+
+}
+
 
 std::ostream &operator<<(std::ostream &out, const AForm &Form)
 {

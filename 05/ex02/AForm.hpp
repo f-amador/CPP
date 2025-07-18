@@ -23,6 +23,7 @@ class AForm
 		bool					_check;
 		const int 				_sign;
 		const int 				_exec;
+		virtual void	executeForm(std::string target)  = 0;
 	
 	public:
 		AForm():_sign(150), _exec(150) {};
@@ -46,6 +47,7 @@ class AForm
 		int 	getSign() const;
 		int		getExec() const;
 		void	beSigned(Bureaucrat &worker);
+		void	execute(const Bureaucrat &executor);
 
 		
 };
