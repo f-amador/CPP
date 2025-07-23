@@ -7,8 +7,8 @@
     class ShrubberyCreationForm: public AForm
     {
         public:
-            ShrubberyCreationForm(const std::string &target);
             ShrubberyCreationForm(): AForm("robotomy request", 25, 5, "default"){};
+            ShrubberyCreationForm(const std::string &target);
             ~ShrubberyCreationForm() {};
             ShrubberyCreationForm(const ShrubberyCreationForm & other);
             ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);

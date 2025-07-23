@@ -5,7 +5,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target):
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 {
-	_check = other._check;
+    _check = other._check;
 	std::cout << "Copy Constructor Called\n";
 }
 
@@ -15,6 +15,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 		_check = other._check;
 	return (*this);
 }
+
 
 void ShrubberyCreationForm::executeForm(std::string target) const
 {

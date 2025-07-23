@@ -5,7 +5,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &target):
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
 {
-	_check = other._check;
+    _check = other._check;
 	std::cout << "Copy Constructor Called\n";
 }
 
@@ -15,6 +15,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 		_check = other._check;
 	return (*this);
 }
+
 
 void RobotomyRequestForm::executeForm(std::string target) const
 {

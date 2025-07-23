@@ -17,59 +17,16 @@
 #include "PresidentialPardonForm.hpp"
 #include <cstdlib>
 #include <climits>
+#include "Intern.hpp"
 
 int main(void)
 {
-
-	Bureaucrat a(150);
-	Bureaucrat b(1);
-	try
-	{
-		std::cout << "\n\n";
-		a = 220;
-		std::cout << "\n\n";
-
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << a.getName() << "\nERROR: " << e.what();
-		//return (1);
-	}
-	try
-	{
-		std::cout << "\n\n";
-		b.incGrade();
-		std::cout << "\n\n";
-
-	}
-	catch (std::exception &e)
-	{
-		std::cerr <<  b.getName() <<"\nERROR: " << e.what();
-		//return (1);
-	}
-	std::cout << "\n\n";
-	try
-	{
-		ShrubberyCreationForm teste;
-		RobotomyRequestForm t2;
-		PresidentialPardonForm t3;
-		b.executeForm(teste);
-		b.executeForm(t2);
-		b.executeForm(t3);
-		std::cout << "\n\n";
-		b.signForm(teste);
-		b.signForm(t2);
-		b.signForm(t3);
-		std::cout << "\n\n";
-		b.executeForm(teste);
-		b.executeForm(t2);
-		b.executeForm(t3);
-		std::cout << "Executing with a lower grade!\n";
-		a.executeForm(t3);
-	}
-	catch(std::exception &e)
-	{
-		std::cerr << "Error Couldn't exec\nReason:" << e.what() << '\n';
-	}
-	
+	Intern someRandomIntern;
+	AForm* rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	Bureaucrat a("Bender", 1);
+	rrf->beSigned(a);
+	rrf->execute(a);
+	a.signForm(*rrf);
+	delete rrf;
 }

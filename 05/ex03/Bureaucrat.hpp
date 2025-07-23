@@ -14,18 +14,11 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
-#include <cstdlib>
-#include <ctime>
 #include "AForm.hpp"
 
 class AForm;
 
-class Bureaucrat
-{
+class Bureaucrat {
 
 	const std::string _name;
 	int		_grade;

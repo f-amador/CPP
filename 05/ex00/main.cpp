@@ -55,7 +55,7 @@ int main(int ac, char **av)
 	}
 	catch(const std::exception &e )
 	{
-		std::cerr << " FATAL ERROR\n";
+		std::cerr << e.what() << " FATAL ERROR\n";
 		return (1);
 	}
 	std::cout << "Original Bureaucrat: " << a << std::endl;
