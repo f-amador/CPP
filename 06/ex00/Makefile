@@ -1,13 +1,13 @@
-NAME = Zombie
+NAME = Convert
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC =  
+SRC =  main.cpp ScalarConverter.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CFLAGS) $(OBJ) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $@
 
 clean:
 	rm -rf $(OBJ)
