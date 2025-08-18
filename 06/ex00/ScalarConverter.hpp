@@ -9,8 +9,9 @@
 class ScalarConverter
 {
     ScalarConverter(const ScalarConverter &other);
-    const   ScalarConverter &operator=(ScalarConverter &other);
-    void    parser(const char *str);
+    const   ScalarConverter &operator=(const ScalarConverter &other);
+    static bool    parser(const char *str);
+
     public:
         ScalarConverter();
         ~ScalarConverter();

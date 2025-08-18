@@ -1,7 +1,7 @@
-NAME = Zombie
+NAME = Serializer
 CXX = c++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC =  
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g
+SRC =  main.cpp Data.cpp Serializer.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

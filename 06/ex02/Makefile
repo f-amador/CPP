@@ -1,7 +1,7 @@
-NAME = Zombie
+NAME = Identify
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC = 
+SRC = main.cpp Base.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
