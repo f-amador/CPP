@@ -31,6 +31,7 @@ int	main(void)
 	Contact Joao;
 	
 
+	std::cout << Joao.getFirstName();
 	Joao.setFirstName("carlos");
 	while (1)
 	{

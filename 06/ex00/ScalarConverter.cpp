@@ -14,7 +14,7 @@ bool ScalarConverter::parser(const char *str)
         std::cout << "char: impossible\nint: impossible\nfloat: -inff\ndouble: -inf\n";
     else if(!std::strncmp(str, "+inf", 4))
         std::cout << "char: impossible\nint: impossible\nfloat: +inff\ndouble: +inf\n";
-    else if(!std::strncmp(str, "nan", 4))
+    else if(!std::strncmp(str, "nan", 3))
         std::cout << "char: impossible\nint: impossible\nfloat: nanf\ndouble: nan\n";
     else
         return(0);
