@@ -33,7 +33,7 @@ void ScalarConverter::convert(const char *str)
         std::cerr << "Non Numeric Literal\n";
         return ;
     }
-    else if (!cast && std::strlen(str) == 1)
+    else if (!cast && str[0] != '0' && std::strlen(str) == 1)
         cast = str[0];
     if (cast >= 0 && cast <= 127)
     {
