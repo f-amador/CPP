@@ -20,7 +20,7 @@ template <typename T> void swap(T &x, T &y)
     tmp = x;
     x = y;
     y = tmp;
-    // if (x == y) return;
+    // if (x == y)  return;
     // x ^= y;
     // y ^= x;
     // x ^= y;

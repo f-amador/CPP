@@ -10,13 +10,12 @@
 
 class Serializer
 {
-    private:
         Serializer(const Serializer &other);
         const Serializer &operator=(const Serializer &other);
-
-    public:
         Serializer();
         ~Serializer();
+
+    public:
 
         static uintptr_t serialize(Data *ptr);
         static Data *deserialize(uintptr_t raw);
