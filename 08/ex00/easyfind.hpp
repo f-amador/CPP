@@ -6,7 +6,7 @@
 #include <iostream>
 
 template <typename T> 
-typename std::vector<T>::iterator easyfind(const std::vector<T> &vec, int n)
+typename std::vector<T>::iterator easyfind(std::vector<T> &vec, int n)
 {
    
     return (std::find(vec.begin(), vec.end(), n));
