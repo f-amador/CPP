@@ -29,7 +29,7 @@ Dog::~Dog()
 	delete _brain;
 }
 
-Dog::Dog(const Dog	&other): _type(other._type)
+Dog::Dog(const Dog	&other): Animal(), _type(other._type)
 {
 	_brain  = new Brain(*other._brain);
 	std::cout << "Dog copy constructor called\n";

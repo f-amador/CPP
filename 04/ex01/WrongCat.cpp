@@ -12,7 +12,7 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(): _type("default")
+WrongCat::WrongCat():WrongAnimal(), _type("default")
 {
 	std::cout << "WrongCat constructor called\n";
 }
@@ -27,7 +27,7 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat destructor called\n";
 }
 
-WrongCat::WrongCat(const WrongCat	&other): _type(other._type)
+WrongCat::WrongCat(const WrongCat	&other):WrongAnimal(), _type(other._type)
 {
 	std::cout << "WrongCat copy constructor called\n";
 }

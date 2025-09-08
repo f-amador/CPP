@@ -12,7 +12,7 @@
 
 #include "Cat.hpp"
 
-Cat::Cat(): _type("Cat")
+Cat::Cat(): Animal(), _type("Cat")
 {
 	_brain = new Brain();
 	std::cout << "Cat constructor called\n";
@@ -29,7 +29,7 @@ Cat::~Cat()
 	std::cout << "Cat destructor called\n";
 }
 
-Cat::Cat(const Cat	&other): _type(other._type)
+Cat::Cat(const Cat	&other): Animal(), _type(other._type)
 {
 	_brain = new Brain(*other._brain);
 	std::cout << "Cat copy constructor called\n";

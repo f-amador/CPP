@@ -1,7 +1,7 @@
 NAME = span
 CXX = c++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC = main.cpp
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g
+SRC = main.cpp Span.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

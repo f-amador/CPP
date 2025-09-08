@@ -3,28 +3,41 @@
 
 int main(void)
 {
-    std::vector<int> test;
-    test.push_back(1);
-    test.push_back(5);
-    test.push_back(2);
-    test.push_back(3);
-    std::vector<int>::iterator it = easyfind(test, 2);
-    std::vector<int>::iterator notFound = easyfind(test, 99);
-    
-    std::vector<long> longTest;
-    longTest.push_back(20L);
-    longTest.push_back(30L);
-    longTest.push_back(10L);
-    std::vector<long>::iterator longIt = easyfind(longTest, 20L);
-    
-    if (it != test.end())
+    Span test(10000);
+    std::cout << "Creating an array with 10000 positions" << std::endl;
+    try
+    {
+        srand(time(0));
+        for (unsigned int i = 0; i <= test.getSize(); i++)
+        {
+            int a = rand() % 30000000;
+            std::cout << "Trying to add " << a << std::endl;
+            test.addNumber(a);
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-        std::cout << "FOUND: " << *it << " at position " << (it - test.begin()) << std::endl;
-    if (longIt != longTest.end())
-        std::cout << "FOUND LONG: " << *longIt << " at position " << (longIt - longTest.begin()) << std::endl;
+    try
+    {
+        Span test2(1);
+        test2.shortestSpan();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    std::cout << "test Shortest Span-> " <<  test.shortestSpan() << std::endl;
+    std::cout << "test Longest Span-> " <<  test.longestSpan() << std::endl;
     
-    if (notFound == test.end())
-        std::cout << "DID NOT FIND 99!" << std::endl;
-    
+    Span test3(2);
+    test3.addNumber(69);
+    test3.addNumber(666);
+    std::cout << "test2 Shortest Span-> " <<  test3.shortestSpan() << std::endl;
+    std::cout << "test2 Longest Span-> " <<  test3.longestSpan() << std::endl;
+
     return 0;
 }
