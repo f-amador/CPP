@@ -11,16 +11,17 @@
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
+#include <limits.h>
 int main(void)
 {
     Fixed a;
     std::cout << a.getRawBits() << std::endl;
     const int &ref = a.getRawBits();
    
-    a.setRawBits(420);
+    a.setRawBits(INT_MIN);
     std::cout << "Changed a to 420" <<  std::endl;
-    Fixed b( a );
+    std::cout << a.getRawBits()  << "JERE\n";
+    Fixed b(a);
 	Fixed d;
 
     d.setRawBits(b.getRawBits());

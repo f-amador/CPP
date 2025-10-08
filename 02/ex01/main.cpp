@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
+#include <limits.h>
 int main( void )
 {
     Fixed a;
-    Fixed const b( 10 );
+    Fixed const b(INT_MIN + 1);
     Fixed const c(8388609);
     Fixed const d( b );
     a = Fixed( 1234.4321f );

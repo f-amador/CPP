@@ -6,9 +6,10 @@
 #include <algorithm>
 
 template <typename T>
-class MutantStack
+class MutantStack : public std::stack<T>
 {
-	std::stack<T> _stack;
+
+	
 	public:
 
 	//	Orthodox Cannonical Form
@@ -18,12 +19,12 @@ class MutantStack
 		~MutantStack();
 
 	// Member Functions
-		void push(T N);
-		T top(void);
-		void pop(void);
-		size_t size(void);
 
-		MutantStack<T>::iter
+
+		typedef typename std::stack<T>::container_type::iterator iterator;
+
+		iterator begin() { return this->c.begin();}
+		iterator end() { return this->c.end();}
 };
 
 #include "MutantStack.tpp"
