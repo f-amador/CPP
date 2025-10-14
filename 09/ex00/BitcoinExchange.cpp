@@ -52,14 +52,12 @@ std::map<int, std::string> loadDataBase(char *file)
     if (!input.is_open())
         throw NoDbFound();
 
-    char c = '|';
-    std::string line;
     std::map <int, std::string> db;
+    std::string line;
+    char c = '|';
     if (static_cast<std::string>(file) == "data.csv")
-    {
-        std::getline(input, line);
         c = ',';
-    }
+    std::getline(input, line);
     while(std::getline(input, line, c))
     {
         int compress = compressDate(line);
@@ -67,4 +65,16 @@ std::map<int, std::string> loadDataBase(char *file)
         db[compress] = line;
     }
     return (db);
+}
+
+bool parseInput(std::map<int, std::string>input)
+{
+    int year, month, day;
+    std::map<int, std::string>::iterator it = input.begin();
+    for(;it != input.end(); it++)
+    {
+        decompressDate(it->first, year, month, day);
+        if (!validDate())
+    }
+
 }

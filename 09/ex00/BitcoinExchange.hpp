@@ -14,7 +14,6 @@ class BitcoinExchange
         BitcoinExchange(const BitcoinExchange &other);
         const BitcoinExchange &operator=(const BitcoinExchange &other);
 
-    
 };
 
 class NoDbFound : public std::exception
