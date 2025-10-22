@@ -41,7 +41,7 @@ long Span::shortestSpan()
 				res = std::max(_span.at(i), _span.at(j)) - std::min(_span.at(i), _span.at(j));
 		}
 	}
-	return(res);	
+	return(res);
 }
 long Span::longestSpan()
 {
@@ -66,6 +66,19 @@ const std::vector<int> &Span::getSpan()
 unsigned int Span::getSize()
 {
 	return (_size);
+}
+
+void Span::fillvector(void)
+{
+    if (_span.size() >= _size)
+        throw ArrayFullException();
+    srand(time(0));
+    for (unsigned int i = _span.size(); i < _size; i++)
+    {
+        int a = rand() % __INT_MAX__;
+        std::cout << "Trying to add " << a << std::endl;
+        addNumber(a);
+    }
 }
 
 const char *Span::ArrayFullException::what() const throw()

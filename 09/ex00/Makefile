@@ -3,11 +3,15 @@ CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra --std=c++98
 SRC = main.cpp BitcoinExchange.cpp
 OBJ = $(SRC:.cpp=.o)
-
+DEP = $(OBJ:.o=.d)
+DEPFLAGS = -MMD -MP
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c  $< -o $@ 
 
 clean:
 	rm -rf $(OBJ)
@@ -18,3 +22,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+-include $(DEP)

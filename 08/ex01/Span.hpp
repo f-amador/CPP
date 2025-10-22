@@ -27,6 +27,8 @@ class Span
 	// Getters
 		const std::vector<int> &getSpan();
 		unsigned int getSize();
+
+		void fillvector(void);
 		
 	// Exceptions
 		class ArrayFullException : public std::exception {

@@ -71,10 +71,10 @@ bool parseInput(std::map<int, std::string>input)
 {
     int year, month, day;
     std::map<int, std::string>::iterator it = input.begin();
-    for(;it != input.end(); it++)
-    {
-        decompressDate(it->first, year, month, day);
-        if (!validDate())
-    }
-
+    // for(;it != input.end(); it++)
+    // {
+    //     decompressDate(it->first, year, month, day);
+    //     if (!validDate())
+    // }
+    return (1);
 }

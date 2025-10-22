@@ -3,17 +3,14 @@
 
 int main(void)
 {
-    Span test(10000);
-    std::cout << "Creating an array with 10000 positions" << std::endl;
+    Span test(10001);
+    std::cout << "Creating an array with 10001 positions" << std::endl;
     try
     {
-        srand(time(0));
-        for (unsigned int i = 0; i <= test.getSize(); i++)
-        {
-            int a = rand() % 30000000;
-            std::cout << "Trying to add " << a << std::endl;
-            test.addNumber(a);
-        }
+        test.fillvector();
+        std::cout << "ARRAY was filled" << std::endl; 
+        std::cout << "trying to fill test twice" << std::endl;
+        test.fillvector();
     }
     catch(const std::exception& e)
     {
@@ -23,6 +20,7 @@ int main(void)
     try
     {
         Span test2(1);
+        std::cout << "shortest span with only 1 value" << std::endl;
         test2.shortestSpan();
     }
     catch(const std::exception& e)
