@@ -1,14 +1,16 @@
 #include "BitcoinExchange.hpp"
 
-void printAllDates(const std::map<int, std::string>& data) {
+void printAllDates(const std::map<int, std::string>& data)
+{
     std::map<int, std::string>::const_iterator it;
     
-    for (it = data.begin(); it != data.end(); ++it) {
+    for (it = data.begin(); it != data.end(); ++it)
+    {
         int year, month, day;
         decompressDate(it->first, year, month, day);
         
         std::cout << year << "-" << month << "-" << day 
-                  << " : " << it->second << std::endl;
+                  << "," << it->second << std::endl;
     }
 }
 
@@ -24,23 +26,26 @@ int main(int ac, char *av[])
     try
     {
        std::string str = "data.csv";
-        db = loadDataBase(const_cast<char *>(str.c_str()));
+        db = loadDataBase(const_cast<char *>(str.c_str()), db);
     }
     catch(const std::exception &e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Database error!\n"  << e.what() << std::endl;
         return (1);
     }
 
     std::map<int, std::string> input;
     try
     {
-        input = loadDataBase(av[1]);
+        input = loadDataBase(av[1], db);
     }
     catch(const std::exception &e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Input.txt ERROR!\n" << e.what() << '\n';
+        //return(1);
     }
-    printAllDates(input);
+    //printAllDates(db);
+    BitcoinExchange *a = new BitcoinExchange;
+    (void)a;
 }
 

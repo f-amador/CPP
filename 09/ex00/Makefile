@@ -15,6 +15,7 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -rf $(OBJ)
+	rm -rf $(DEP)
 
 fclean: clean
 	rm -rf $(NAME)

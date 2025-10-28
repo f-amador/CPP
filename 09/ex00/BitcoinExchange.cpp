@@ -29,52 +29,100 @@ const char *NoDbFound::what() const throw()
 	return ("No Db Found!\n");
 }
 
-int compressDate(std::string line)
+const char *InvalidDate::what() const throw()
+{
+	return ("Date doesn't exist!\n");
+}
+
+const char *InvalidValue::what() const throw()
+{
+	return ("Invalid Value!\n");
+}
+
+int compressDate2(std::string line)
 {
     std::istringstream iss(line);
-    int year, month, day;
+    int year = 0, month = 0, day = 0;
     char garbage;
 
     iss >> year >> garbage >> month >> garbage >> day;
-    return((year << 9) | (month << 5) | day);
+    if (day <= 0 || day >= 32 || month  <= 0 || month >= 13 || year < 0)
+        std::cerr << "Error: bad input => " + line << std::endl;
+    if (day == 29 && month == 2 && ((year - 8) % 4))
+        std::cerr << "Error: bad input => " + line << std::endl;
+    return((year << 16) | (month << 8) | day);
+}
+
+int compressDate(std::string line)
+{
+    std::istringstream iss(line);
+    int year = 0, month = 0, day = 0;
+    char garbage;
+
+    iss >> year >> garbage >> month >> garbage >> day;
+    return((year << 16) | (month << 8) | day);
 }
 
 void decompressDate(int compressed, int &year, int &month, int &day)
 {
-    year = (compressed >> 9) & 0x7FFF;
-    month = (compressed >> 5) & 0x0F;
-    day = compressed & 0x1F;
+    year = (compressed >> 16) & 0xFFFF;
+    month = (compressed >> 8) & 0xFF;
+    day = compressed & 0xFF;
 }
 
-std::map<int, std::string> loadDataBase(char *file)
+bool validBTC(std::string line)
+{
+    for (int i = 0; line[i]; i++)
+    {
+        if (!std::isdigit(line[i]) && !std::isspace(line[i]))
+            return false;
+    }
+    return (true);
+}
+
+// void printResult(std::string line, std::string tmp, std::map<int, std::string> db)
+// {
+//     std::cout << tmp + " => " + line + " => " << db
+// }
+
+std::map<int, std::string> loadDataBase(char *file, std::map<int, std::string> db)
 {
     std::ifstream input(file);
     if (!input.is_open())
         throw NoDbFound();
-
-    std::map <int, std::string> db;
+    bool flag = (static_cast<std::string>(file) == "data.csv");
+    std::map <int, std::string> newdb;
     std::string line;
     char c = '|';
-    if (static_cast<std::string>(file) == "data.csv")
+    if (flag)
         c = ',';
     std::getline(input, line);
     while(std::getline(input, line, c))
     {
-        int compress = compressDate(line);
+        std::string tmp = line;
+        int compress;
+        if (flag)
+            compress = compressDate(line);
+        else
+            compress = compressDate2(line);
         std::getline(input, line);
-        db[compress] = line;
+        if (!flag)
+        {
+            if(!validBTC(line))
+                std::cerr << "Error: not a number " << line << std::endl;
+            else
+            {
+                int i = atoi(line.c_str());
+                if (i > 1000)
+                    std::cerr << "Error: too large a number." << std::endl; 
+                else if (i < 0)
+                    std::cerr << "Error: not a positive number." << std::endl;
+                // else
+                    // printResult(line, tmp, db);
+            }
+        }
+        (void)db;
+        newdb[compress] = line;
     }
-    return (db);
-}
-
-bool parseInput(std::map<int, std::string>input)
-{
-    int year, month, day;
-    std::map<int, std::string>::iterator it = input.begin();
-    // for(;it != input.end(); it++)
-    // {
-    //     decompressDate(it->first, year, month, day);
-    //     if (!validDate())
-    // }
-    return (1);
+    return (newdb);
 }
