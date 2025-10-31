@@ -1,4 +1,5 @@
 #include "BitcoinExchange.hpp"
+#include <iomanip>
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -47,9 +48,15 @@ int compressDate2(std::string line)
 
     iss >> year >> garbage >> month >> garbage >> day;
     if (day <= 0 || day >= 32 || month  <= 0 || month >= 13 || year < 0)
+    {
         std::cerr << "Error: bad input => " + line << std::endl;
+        return -1;
+    }
     if (day == 29 && month == 2 && ((year - 8) % 4))
+    {
         std::cerr << "Error: bad input => " + line << std::endl;
+        return -1;
+    }
     return((year << 16) | (month << 8) | day);
 }
 
@@ -72,18 +79,48 @@ void decompressDate(int compressed, int &year, int &month, int &day)
 
 bool validBTC(std::string line)
 {
+    bool hasDecimal = false;
     for (int i = 0; line[i]; i++)
     {
-        if (!std::isdigit(line[i]) && !std::isspace(line[i]))
+        if (!std::isdigit(line[i]) && !std::isspace(line[i]) && line[i] != '.')
             return false;
+        if (line[i] == '.')
+        {
+            if (hasDecimal)
+                return false;
+            hasDecimal = true;
+        }
     }
-    return (true);
+    if (line.empty())
+        return (false);
+    double tmp = atof(line.c_str());
+    return (tmp >= 0 && tmp <= 1000);
 }
 
-// void printResult(std::string line, std::string tmp, std::map<int, std::string> db)
-// {
-//     std::cout << tmp + " => " + line + " => " << db
-// }
+
+std::string findClosestDate(const std::string &targetDate, std::map<int, std::string> &db)
+{
+    int targetKey = compressDate2(targetDate);
+
+    std::map<int, std::string>::iterator it = db.lower_bound(targetKey);
+
+    if (it == db.begin())
+        return it->second;
+    if (it == db.end())
+    {
+        --it;
+        return it->second;
+    }
+
+    --it;
+    return it->second;
+}
+void printResult(const std::string &line, const std::string &tmp, std::map<int, std::string> &db)
+{
+    double value = atof(findClosestDate(tmp, db).c_str()) * atof(line.c_str()); 
+
+    std::cout << std::fixed << std::setprecision(2) << tmp + " => " + line + " => " << value << std::endl;
+}
 
 std::map<int, std::string> loadDataBase(char *file, std::map<int, std::string> db)
 {
@@ -117,8 +154,8 @@ std::map<int, std::string> loadDataBase(char *file, std::map<int, std::string> d
                     std::cerr << "Error: too large a number." << std::endl; 
                 else if (i < 0)
                     std::cerr << "Error: not a positive number." << std::endl;
-                // else
-                    // printResult(line, tmp, db);
+                else if (compress != -1)
+                     printResult(line, tmp, db);
             }
         }
         (void)db;
