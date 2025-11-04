@@ -4,7 +4,7 @@ int main(int ac, char *av[])
     (void)av;
     if (ac != 2)
         std::cerr << "ERROR\nInvalid number of arguments\nUsage: ./RPN \" RPN EXPRESSION\"" << std::endl;
-    int itmp, fop, sop;
+    int itmp, fop, sop, count = 0;
     char ctmp;
     std::stack<char> stack;
     std::istringstream parse(av[1]);
