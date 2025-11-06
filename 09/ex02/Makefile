@@ -1,6 +1,6 @@
-NAME=RPN
+NAME=PmergeMe
 CXX = c++
-CXXFLAGS = -Wall -Werror -Wextra --std=c++98
+CXXFLAGS = -Wall -Werror -Wextra --std=c++98 -g
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(OBJ:.o=.d)
@@ -10,8 +10,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o : %.cpp
-	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c  $< -o $@ 
+$(OBJ):
+	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c $(SRC)
 
 clean:
 	rm -rf $(OBJ)
