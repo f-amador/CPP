@@ -36,30 +36,24 @@ int main(int ac, char *av[])
             }
             switch (ctmp)
             {
+                res = stack.top();
+                stack.pop();
                 case '+':
-                    res = stack.top();
-                    stack.pop();
                     res = stack.top() + res;
                     stack.pop();
                     stack.push(res);
                     break;
                 case '-':
-                    res = stack.top();
-                    stack.pop();
                     res = stack.top() - res;
                     stack.pop();
                     stack.push(res);
                     break;
                 case '*':
-                    res = stack.top();
-                    stack.pop();
                     res = stack.top() * res;
                     stack.pop();
                     stack.push(res);
                     break;
                 case '/':
-                    res = stack.top();
-                    stack.pop();
                     res = stack.top() / res;
                     stack.pop();
                     stack.push(res);
