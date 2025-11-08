@@ -52,10 +52,14 @@ int compressDate2(std::string line)
         std::cerr << "Error: bad input => " + line << std::endl;
         return -1;
     }
-    if (day == 29 && month == 2 && ((year - 8) % 4))
+    if (day == 29 && month == 2) 
     {
-        std::cerr << "Error: bad input => " + line << std::endl;
-        return -1;
+        bool isLeapYear = (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
+        if (!isLeapYear) 
+        {
+            std::cerr << "Error: bad input => " + line << std::endl;
+            return -1;
+        }
     }
     return((year << 16) | (month << 8) | day);
 }
@@ -119,7 +123,7 @@ void printResult(const std::string &line, const std::string &tmp, std::map<int, 
 {
     double value = atof(findClosestDate(tmp, db).c_str()) * atof(line.c_str()); 
 
-    std::cout << std::fixed << std::setprecision(2) << tmp + " => " + line + " => " << value << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << tmp + "=>" + line + " => " << value << std::endl;
 }
 
 std::map<int, std::string> loadDataBase(char *file, std::map<int, std::string> db)

@@ -92,17 +92,18 @@ void PmergeMe::sortDeque()
 
 void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
 {
-	if (arr.size() <= 1) return;
+	if (arr.size() <= 1)
+		return;
 
 	int straggler = -1;
 	bool hasStraggler = false;
-
 	if (arr.size() % 2 == 1)
 	{
 		straggler = arr.back();
 		hasStraggler = true;
 		arr.pop_back();
 	}
+
 	std::vector<std::pair<int, int> >pairs;
 	for(size_t i = 0; i < arr.size(); i += 2)
 	{
@@ -117,9 +118,7 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
 		for (size_t j = i + 1; j < pairs.size(); j++)
 		{
 			if (pairs[i].first > pairs[j].first)
-			{
 				std::swap(pairs[i], pairs[j]);
-			}
 		}
 	}
 
@@ -131,12 +130,33 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
 		mainChain.push_back(pairs[i].first);
 	}
 
-	for (size_t i = 1; i < pairs.size(); i++)
+	std::vector<int> insertionOrder;
+    size_t jacobsthal[] = {1, 3, 5, 11, 21, 43, 85, 171, 341, 681, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525};   
+    size_t jacobIndex = 0;
+    size_t lastIndex = 0;
+    while (true)
 	{
-		int element = pairs[i].second;
-		std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
-		mainChain.insert(pos, element);
-	}
+        size_t current = jacobsthal[jacobIndex];
+        if (current > pairs.size() - 1)
+            current = pairs.size() - 1;
+        for (size_t i = current; i > lastIndex; i--)
+		{
+            if (i < pairs.size())
+                insertionOrder.push_back(i);
+        }
+        if (current >= pairs.size() - 1)
+			break;
+        lastIndex = current;
+        jacobIndex++;
+    }
+
+	for (size_t i = 0; i < insertionOrder.size(); i++)
+	{
+        size_t index = insertionOrder[i];
+        int element = pairs[index].second;
+        std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
+        mainChain.insert(pos, element);
+    }
 	if (hasStraggler)
 	{
 		std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), straggler);
@@ -147,17 +167,18 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
 
 void PmergeMe::fordJohnsonSortDeque(std::deque<int> &arr)
 {
-	if (arr.size() <= 1) return;
+	if (arr.size() <= 1)
+		return;
 
 	int straggler = -1;
 	bool hasStraggler = false;
-
 	if (arr.size() % 2 == 1)
 	{
 		straggler = arr.back();
 		hasStraggler = true;
 		arr.pop_back();
 	}
+
 	std::deque<std::pair<int, int> >pairs;
 	for(size_t i = 0; i < arr.size(); i += 2)
 	{
@@ -172,9 +193,7 @@ void PmergeMe::fordJohnsonSortDeque(std::deque<int> &arr)
 		for (size_t j = i + 1; j < pairs.size(); j++)
 		{
 			if (pairs[i].first > pairs[j].first)
-			{
 				std::swap(pairs[i], pairs[j]);
-			}
 		}
 	}
 
@@ -186,12 +205,34 @@ void PmergeMe::fordJohnsonSortDeque(std::deque<int> &arr)
 		mainChain.push_back(pairs[i].first);
 	}
 
-	for (size_t i = 1; i < pairs.size(); i++)
+	std::deque<int> insertionOrder;
+    size_t jacobsthal[] = {1, 3, 5, 11, 21, 43, 85, 171, 341, 681, 1365, 2731, 5461, 10923, 21845, 43691, 87381, 174763, 349525};
+    size_t jacobIndex = 0;
+    size_t lastIndex = 0;
+    while (true)
 	{
-		int element = pairs[i].second;
-		std::deque<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
-		mainChain.insert(pos, element);
-	}
+        size_t current = jacobsthal[jacobIndex];
+        if (current > pairs.size() - 1)
+            current = pairs.size() - 1;
+        for (size_t i = current; i > lastIndex; i--)
+		{
+            if (i < pairs.size())
+                insertionOrder.push_back(i);
+        }
+        
+        if (current >= pairs.size() - 1)
+			break;
+        lastIndex = current;
+        jacobIndex++;
+    }
+
+	for (size_t i = 0; i < insertionOrder.size(); i++)
+	{
+        size_t index = insertionOrder[i];
+        int element = pairs[index].second;
+        std::deque<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
+        mainChain.insert(pos, element);
+    }
 	if (hasStraggler)
 	{
 		std::deque<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), straggler);

@@ -22,6 +22,10 @@ fclean: clean
 
 re: fclean all
 
+test: all
+	@echo "Generating 10000 random numbers..."
+	@./PmergeMe `shuf -i 1-1000000 -n 10000 | tr '\n' ' '`
+
 .PHONY: all clean fclean re
 
 -include $(DEP)
