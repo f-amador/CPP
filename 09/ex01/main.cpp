@@ -4,7 +4,7 @@ int main(int ac, char *av[])
     (void)av;
     if (ac != 2)
     {
-        std::cerr << "ERROR" << std::endl;
+        std::cerr << "ERROR\nInvalid number of arguments\nUsage: ./RPN \" RPN EXPRESSION\"" << std::endl;
         return(1);
     }
     int itmp, res = 0;
@@ -16,7 +16,7 @@ int main(int ac, char *av[])
         parse >> itmp;
         if (itmp > 9 || itmp < 0)
         {
-            std::cerr << "ERROR\n";
+            std::cerr << "ERROR INPUT\n";
             return (1);
         }
         else
@@ -36,30 +36,36 @@ int main(int ac, char *av[])
             }
             switch (ctmp)
             {
-                res = stack.top();
-                stack.pop();
                 case '+':
+                    res = stack.top();
+                    stack.pop();
                     res = stack.top() + res;
                     stack.pop();
                     stack.push(res);
                     break;
                 case '-':
+                    res = stack.top();
+                    stack.pop();
                     res = stack.top() - res;
                     stack.pop();
                     stack.push(res);
                     break;
                 case '*':
+                    res = stack.top();
+                    stack.pop();
                     res = stack.top() * res;
                     stack.pop();
                     stack.push(res);
                     break;
                 case '/':
+                    res = stack.top();
+                    stack.pop();
                     res = stack.top() / res;
                     stack.pop();
                     stack.push(res);
                     break;
                 default:
-                    std::cerr << "ERROR\n";
+                    std::cerr << "ERROR OPERATOR\n";
                     return (1);
             }
         }
@@ -67,7 +73,7 @@ int main(int ac, char *av[])
         {
             if (ctmp > '9' || ctmp < '0')
             {
-                std::cerr << "ERROR\n";
+                std::cerr << "ERROR OPERAND\n";
                 return (1);
             }
             else
