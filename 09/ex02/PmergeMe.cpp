@@ -73,7 +73,6 @@ void PmergeMe::sortAndDisplay()
 		std::cout << _vec[i] << " "; 
 	}
 	std::cout << std::endl;
-	
 	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << timeVec << " us" << std::endl;
     std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque  : " << timeDeq << " us" << std::endl;
