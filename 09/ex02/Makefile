@@ -1,6 +1,6 @@
 NAME=PmergeMe
 CXX = c++
-CXXFLAGS = -Wall -Werror -Wextra --std=c++98 -g
+CXXFLAGS = -Wall -Werror -Wextra #--std=c++98 -g
 SRC = main.cpp PmergeMe.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(OBJ:.o=.d)
@@ -24,7 +24,7 @@ re: fclean all
 
 test: all
 	@echo "Generating 10000 random numbers..."
-	@./PmergeMe `shuf -i 1-10 -n 7 | tr '\n' ' '`
+	@./PmergeMe `shuf -i 1-1000000 -n 10 | tr '\n' ' '`
 
 .PHONY: all clean fclean re
 
