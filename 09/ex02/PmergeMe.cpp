@@ -146,7 +146,8 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
     {
         int a = arr[i];
         int b = arr[i + 1];
-        if (a < b) std::swap(a, b);
+        if (a < b)
+            std::swap(a, b);
         pairs.push_back(std::make_pair(a, b));
     }
 

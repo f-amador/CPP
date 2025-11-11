@@ -115,7 +115,6 @@ std::string findClosestDate(const std::string &targetDate, std::map<int, std::st
         --it;
         return it->second;
     }
-
     --it;
     return it->second;
 }
