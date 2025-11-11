@@ -113,11 +113,6 @@ void PmergeMe::sortAndDisplay()
     std::cout << std::fixed << std::setprecision(5);
     std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << timeVec << " us" << std::endl;
     std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque  : " << timeDeq << " us" << std::endl;
-
-	if (std::is_sorted(_vec.begin(), _vec.end()))
-		std::cout << "Vector is sorted correctly." << std::endl;
-	else
-		std::cout << "Vector is NOT sorted correctly!" << std::endl;
 }
 
 void PmergeMe::sortVector()
