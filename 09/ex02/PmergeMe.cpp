@@ -1,10 +1,5 @@
 #include "PmergeMe.hpp"
 
-static bool compareFirstPair(const std::pair<int,int>& a, const std::pair<int,int>& b)
-{
-    return a.first < b.first;
-}
-
 static std::vector<size_t> buildInsertionOrder(size_t pairCount)
 {
     std::vector<size_t> order;
@@ -33,6 +28,11 @@ static std::vector<size_t> buildInsertionOrder(size_t pairCount)
         ++k;
     }
     return order;
+}
+
+// Compare by first (max) ascending
+static bool comparePairByFirst(const std::pair<int,int>& a, const std::pair<int,int>& b) {
+    return a.first < b.first;
 }
 
 PmergeMe::PmergeMe() {};
@@ -139,9 +139,10 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
         arr.pop_back();
     }
 
-    std::vector<std::pair<int, int> > pairs;
+    // Build pairs (max, min)
+    std::vector<std::pair<int,int> > pairs;
     pairs.reserve(arr.size() / 2);
-    for(size_t i = 0; i < arr.size(); i += 2)
+    for (size_t i = 0; i < arr.size(); i += 2)
     {
         int a = arr[i];
         int b = arr[i + 1];
@@ -149,30 +150,58 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
         pairs.push_back(std::make_pair(a, b));
     }
 
-    std::sort(pairs.begin(), pairs.end(), compareFirstPair);
-
-    std::vector<int> mainChain;
-    mainChain.reserve(pairs.size() + 1);
-    mainChain.push_back(pairs[0].second);
+    // Recursively sort maxima
+    std::vector<int> maxima;
+    maxima.reserve(pairs.size());
     for (size_t i = 0; i < pairs.size(); ++i)
-        mainChain.push_back(pairs[i].first);
+        maxima.push_back(pairs[i].first);
 
-    std::vector<size_t> insertionOrder = buildInsertionOrder(pairs.size());
+    fordJohnsonSortVector(maxima); // recursion on half-size problem
+
+    // Reorder pairs according to sorted maxima in O(n log n + n)
+    std::vector<std::pair<int,int> > pairsSorted = pairs;
+    std::sort(pairsSorted.begin(), pairsSorted.end(), comparePairByFirst);
+
+    std::vector<std::pair<int,int> > orderedPairs;
+    orderedPairs.reserve(pairs.size());
+    size_t iMax = 0, iPair = 0;
+    while (iMax < maxima.size() && iPair < pairsSorted.size()) {
+        if (pairsSorted[iPair].first == maxima[iMax]) {
+            orderedPairs.push_back(pairsSorted[iPair]);
+            ++iMax; ++iPair;
+        } else if (pairsSorted[iPair].first < maxima[iMax]) {
+            ++iPair;
+        } else { // should not happen if inputs are consistent, but be safe
+            ++iMax;
+        }
+    }
+
+    // Build main chain: [min_of_first_pair, all maxima...]
+    std::vector<int> mainChain;
+    mainChain.reserve(orderedPairs.size() + 1);
+    mainChain.push_back(orderedPairs[0].second);
+    for (size_t i = 0; i < orderedPairs.size(); ++i)
+        mainChain.push_back(orderedPairs[i].first);
+
+    // Insert all mins in Jacobsthal order
+    std::vector<size_t> insertionOrder = buildInsertionOrder(orderedPairs.size());
     for (size_t k = 0; k < insertionOrder.size(); ++k)
     {
         size_t index = insertionOrder[k];
-        int element = pairs[index].second;
-        std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
+        int element = orderedPairs[index].second;
+        std::vector<int>::iterator pos =
+            std::lower_bound(mainChain.begin(), mainChain.end(), element);
         mainChain.insert(pos, element);
     }
 
     if (hasStraggler)
     {
-        std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), straggler);
+        std::vector<int>::iterator pos =
+            std::lower_bound(mainChain.begin(), mainChain.end(), straggler);
         mainChain.insert(pos, straggler);
     }
 
-    arr = mainChain;
+    arr.swap(mainChain);
 }
 
 void PmergeMe::fordJohnsonSortDeque(std::deque<int> &arr)
@@ -189,9 +218,10 @@ void PmergeMe::fordJohnsonSortDeque(std::deque<int> &arr)
         arr.pop_back();
     }
 
-    std::vector<std::pair<int, int> > pairs;
+    // Build pairs (max, min)
+    std::vector<std::pair<int,int> > pairs;
     pairs.reserve(arr.size() / 2);
-    for(size_t i = 0; i < arr.size(); i += 2)
+    for (size_t i = 0; i < arr.size(); i += 2)
     {
         int a = arr[i];
         int b = arr[i + 1];
@@ -199,27 +229,51 @@ void PmergeMe::fordJohnsonSortDeque(std::deque<int> &arr)
         pairs.push_back(std::make_pair(a, b));
     }
 
-    std::sort(pairs.begin(), pairs.end(), compareFirstPair);
-
-    std::deque<int> mainChain;
-    mainChain.push_back(pairs[0].second);
+    // Recursively sort maxima
+    std::deque<int> maxima;
     for (size_t i = 0; i < pairs.size(); ++i)
-        mainChain.push_back(pairs[i].first);
+        maxima.push_back(pairs[i].first);
 
-    std::vector<size_t> insertionOrder = buildInsertionOrder(pairs.size());
+    fordJohnsonSortDeque(maxima); // recursion on half-size problem
+
+    // Reorder pairs according to sorted maxima in O(n log n + n)
+    std::vector<std::pair<int,int> > pairsSorted = pairs;
+    std::sort(pairsSorted.begin(), pairsSorted.end(), comparePairByFirst);
+
+    std::vector<std::pair<int,int> > orderedPairs;
+    orderedPairs.reserve(pairs.size());
+    size_t iMax = 0, iPair = 0;
+    while (iMax < maxima.size() && iPair < pairsSorted.size()) {
+        if (pairsSorted[iPair].first == maxima[iMax]) {
+            orderedPairs.push_back(pairsSorted[iPair]);
+            ++iMax; ++iPair;
+        } else if (pairsSorted[iPair].first < maxima[iMax]) {
+            ++iPair;
+        } else {
+            ++iMax;
+        }
+    }
+
+    // Build main chain: [min_of_first_pair, all maxima...]
+    std::deque<int> mainChain;
+    mainChain.push_back(orderedPairs[0].second);
+    for (size_t i = 0; i < orderedPairs.size(); ++i)
+        mainChain.push_back(orderedPairs[i].first);
+    // Insert all mins in Jacobsthal order
+    std::vector<size_t> insertionOrder = buildInsertionOrder(orderedPairs.size());
     for (size_t k = 0; k < insertionOrder.size(); ++k)
     {
         size_t index = insertionOrder[k];
-        int element = pairs[index].second;
-        std::deque<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
+        int element = orderedPairs[index].second;
+        std::deque<int>::iterator pos =
+            std::lower_bound(mainChain.begin(), mainChain.end(), element);
         mainChain.insert(pos, element);
     }
-
     if (hasStraggler)
     {
-        std::deque<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), straggler);
+        std::deque<int>::iterator pos =
+            std::lower_bound(mainChain.begin(), mainChain.end(), straggler);
         mainChain.insert(pos, straggler);
     }
-
-    arr = mainChain;
+    arr.swap(mainChain);
 }
