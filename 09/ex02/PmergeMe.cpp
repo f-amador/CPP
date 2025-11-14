@@ -150,13 +150,19 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
             std::swap(a, b);
         pairs.push_back(std::make_pair(a, b));
     }
-
+    // for (int i = 0; i < static_cast<int>(pairs.size()); ++i)
+    // {
+    //      std::cout << "Pair " << i << ": (" << pairs[i].first << ", " << pairs[i].second << ")\n";
+    // }
     // Recursively sort maxima
     std::vector<int> maxima;
     maxima.reserve(pairs.size());
     for (size_t i = 0; i < pairs.size(); ++i)
         maxima.push_back(pairs[i].first);
-
+    // for (int i = 0; i < static_cast<int>(maxima.size()); ++i)
+    // {
+    //      std::cout << "Maxima " << i << ": " << maxima[i] << "\n";
+    // }
     fordJohnsonSortVector(maxima); // recursion on half-size problem
 
     // Reorder pairs according to sorted maxima in O(n log n + n)
@@ -167,41 +173,53 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
     orderedPairs.reserve(pairs.size());
     size_t iMax = 0, iPair = 0;
     while (iMax < maxima.size() && iPair < pairsSorted.size()) {
-        if (pairsSorted[iPair].first == maxima[iMax]) {
+        if (pairsSorted[iPair].first == maxima[iMax])
+        {
             orderedPairs.push_back(pairsSorted[iPair]);
-            ++iMax; ++iPair;
-        } else if (pairsSorted[iPair].first < maxima[iMax]) {
-            ++iPair;
-        } else { // should not happen if inputs are consistent, but be safe
             ++iMax;
-        }
+            ++iPair;
+        } else if (pairsSorted[iPair].first < maxima[iMax])
+            ++iPair;
     }
-
+    //     for (int i = 0; i < static_cast<int>(orderedPairs.size()); ++i)
+    // {
+    //      std::cout << "Ordered Pair " << i << ": (" << orderedPairs[i].first << ", " << orderedPairs[i].second << ")\n";
+    // }
     // Build main chain: [min_of_first_pair, all maxima...]
     std::vector<int> mainChain;
     mainChain.reserve(orderedPairs.size() + 1);
     mainChain.push_back(orderedPairs[0].second);
     for (size_t i = 0; i < orderedPairs.size(); ++i)
         mainChain.push_back(orderedPairs[i].first);
-
+    // for (int i = 0; i < static_cast<int>(mainChain.size()); ++i)
+    // {
+    //      std::cout << "Main Chain " << i << ": " << mainChain[i] << "\n";
+    // }
     // Insert all mins in Jacobsthal order
     std::vector<size_t> insertionOrder = buildInsertionOrder(orderedPairs.size());
+    // for (int i = 0; i < static_cast<int>(insertionOrder.size()); ++i)
+    // {
+    //      std::cout << "Insertion Order " << i << ": " << insertionOrder[i] << "\n";
+    // }
     for (size_t k = 0; k < insertionOrder.size(); ++k)
     {
         size_t index = insertionOrder[k];
         int element = orderedPairs[index].second;
+        // std::cout << "Inserting element: " << element << " from pair index: " << index << "\n";
         std::vector<int>::iterator pos =
             std::lower_bound(mainChain.begin(), mainChain.end(), element);
         mainChain.insert(pos, element);
     }
-
     if (hasStraggler)
     {
         std::vector<int>::iterator pos =
-            std::lower_bound(mainChain.begin(), mainChain.end(), straggler);
+        std::lower_bound(mainChain.begin(), mainChain.end(), straggler);
         mainChain.insert(pos, straggler);
     }
-
+    // for (int i = 0; i < static_cast<int>(mainChain.size()); ++i)
+    // {
+    //      std::cout << "Main Chain after insertion " << i << ": " << mainChain[i] << "\n";
+    // }
     arr.swap(mainChain);
 }
 
@@ -245,14 +263,16 @@ void PmergeMe::fordJohnsonSortDeque(std::deque<int> &arr)
     orderedPairs.reserve(pairs.size());
     size_t iMax = 0, iPair = 0;
     while (iMax < maxima.size() && iPair < pairsSorted.size()) {
-        if (pairsSorted[iPair].first == maxima[iMax]) {
+        if (pairsSorted[iPair].first == maxima[iMax])
+        {
             orderedPairs.push_back(pairsSorted[iPair]);
-            ++iMax; ++iPair;
-        } else if (pairsSorted[iPair].first < maxima[iMax]) {
-            ++iPair;
-        } else {
             ++iMax;
+            ++iPair;
         }
+        else if (pairsSorted[iPair].first < maxima[iMax])
+            ++iPair;
+        else
+            ++iMax;
     }
 
     // Build main chain: [min_of_first_pair, all maxima...]
