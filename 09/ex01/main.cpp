@@ -34,10 +34,10 @@ int main(int ac, char *av[])
                 std::cerr << "ERROR" << std::endl;
                 return 1;
             }
+            res = stack.top();
+            stack.pop();
             switch (ctmp)
             {
-                res = stack.top();
-                stack.pop();
                 case '+':
                     res = stack.top() + res;
                     stack.pop();
@@ -64,15 +64,7 @@ int main(int ac, char *av[])
             }
         }
         else
-        {
-            if (ctmp > '9' || ctmp < '0')
-            {
-                std::cerr << "ERROR OPERAND\n";
-                return (1);
-            }
-            else
                 stack.push(ctmp - '0');
-        }
     }
     if (stack.size() != 1)
     {

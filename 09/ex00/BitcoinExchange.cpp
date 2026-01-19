@@ -161,7 +161,6 @@ std::map<int, std::string> loadDataBase(char *file, std::map<int, std::string> d
                      printResult(line, tmp, db);
             }
         }
-        (void)db;
         newdb[compress] = line;
     }
     return (newdb);

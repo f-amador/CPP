@@ -11,28 +11,50 @@
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
+
 int main( void ) 
 {
-	Fixed a(19);
-	Fixed b( Fixed( 5.05f )   * Fixed(2) );
-	std::cout << std::boolalpha;
-	std::cout << "Fixed: b(5.05f * 2), b(19)" << std::endl;
-	std::cout << "b < a: " << (b < a) << std::endl;
-	std::cout << "add: " << (b + a) << std::endl;
-	std::cout << "subtract: " << (b - a) << std::endl;
-	std::cout << "multiply: " << (b * a) << std::endl;
-	std::cout << "division: " << (b / a) << std::endl;
-	std::cout << "incrementing a: ";
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << --a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << "max: " << Fixed::max( a, b ) << std::endl;
-	std::cout << "min: " << Fixed::min( a, b ) << std::endl;
-	return 0;
+    Fixed a;
+    Fixed const b(Fixed(5.05f) + Fixed(2));
+    Fixed const c(Fixed(5.05f) - Fixed(2) );
+    Fixed d(Fixed(5.05f) * Fixed(2));
+    Fixed e(Fixed(5.05f) / Fixed(2));
+    Fixed f(d + e);
+    Fixed g(f * f / d + e - d);
+
+    std::cout << "\nArithmetic operators:\n\n";
+    std::cout << "b: " << b << "    " << "c: " << c << std::endl;
+    std::cout << "d: " << d << "    " << "e: " << e << std::endl;
+    std::cout << "f: " << f << "    " << "g: " << g << "\n\n";
+
+    std::cout << "Comparison operators:\n\n";
+    std::cout << "b > c    =   " << (b > c) << std::endl;
+    std::cout << "b >= c   =   " << (b >= c) << std::endl;
+    std::cout << "b >= b   =   " << (b >= b) << std::endl;
+    std::cout << "b < c    =   " << (b < c) << std::endl;
+    std::cout << "b <= c   =   " << (b <= c) << std::endl;
+    std::cout << "b <= b   =   " << (b <= b) << std::endl;
+    std::cout << "b == b   =   " << (b == b) << std::endl;
+    std::cout << "b != c   =   " << (b != c) << std::endl;
+    std::cout << "f != g   =   " << (f != g) << "\n\n";
+
+    std::cout << "Increment and decrement operators:\n\n";
+    std::cout << "a     =    " << a << std::endl;
+    std::cout << "++a   =    " << ++a << std::endl;
+    std::cout << "a     =    " << a << std::endl;
+    std::cout << "a++   =    " << a++ << std::endl;
+    std::cout << "a     =    " << a << std::endl;
+    std::cout << "a--   =    " << a-- << std::endl;
+    std::cout << "a     =    " << a << std::endl;
+    std::cout << "--a   =    " << --a << "\n\n";
+    
+    std::cout << "Min and max functions:\n\n";
+    std::cout << "Not const\n";
+    std::cout << "Args passed in min function: a, d:  " << Fixed::min(a, d) << std::endl;
+    std::cout << "Args passed in max function: e, f:  " << Fixed::max(e, f) << "\n\n";
+    std::cout << "Const\n";
+    std::cout << "Args passed in min function: b, c:  " << Fixed::min(b, c) << std::endl;
+    std::cout << "Args passed in max function: b, c:  " << Fixed::max(b, c) << "\n\n";
+
+    return (0);
 }

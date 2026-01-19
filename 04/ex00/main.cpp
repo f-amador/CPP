@@ -27,7 +27,9 @@ int main()
 	j->makeSound();
 	meta->makeSound();
 	const WrongAnimal *wrong = new WrongCat();
+	const WrongAnimal *wrong2 = new WrongAnimal();
 	wrong->makeSound();
+	wrong2->makeSound();
 	delete wrong;
 	delete i;
 	delete j;
