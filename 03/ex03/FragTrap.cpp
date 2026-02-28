@@ -6,30 +6,32 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:41:13 by framador          #+#    #+#             */
-/*   Updated: 2025/06/06 10:42:27 by framador         ###   ########.fr       */
+/*   Updated: 2026/02/21 16:25:22 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+using std::cout;
+
 FragTrap::FragTrap(): ClapTrap()
 {
-	std::cout << "FragTrap Constructor Called\n";
+	cout << "FragTrap Constructor Called\n";
 }
 
-FragTrap::FragTrap(std::string name): ClapTrap(name)
+FragTrap::FragTrap(string name): ClapTrap(name)
 {
-	std::cout << "FragTrap constructor has been called\n";
+	cout << "FragTrap constructor has been called\n";
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor has been called\n";
+	cout << "FragTrap destructor has been called\n";
 }
 
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
-{
-	std::cout << "FragTrap copy constructor called\n";
+{	
+	cout << "FragTrap copy constructor called\n";
 	_name = copy._name;
 	_hitPoints = copy._hitPoints;
 	_energyPoints = copy._energyPoints;

@@ -6,19 +6,25 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 16:20:31 by framador          #+#    #+#             */
-/*   Updated: 2025/06/05 15:03:34 by framador         ###   ########.fr       */
+/*   Updated: 2026/02/21 16:26:34 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
+
+using std::string;
+
+
 DiamondTrap::DiamondTrap()
-{	
+{
 	std::cout << "DiamondTrap Constructor Called\n";	
 }
 
 DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), _name(name)
 {
+
+	
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_damage = FragTrap::_damage;
@@ -57,5 +63,5 @@ void	DiamondTrap::attack(const std::string& target)
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << " Hello my name is " << _name << " and " << ClapTrap::_name << " is the one I inherit from\n";
+	std::cout << " Hello my name is " << _name << " and " << this->ClapTrap::_name << " is the one I inherit from\n";
 }

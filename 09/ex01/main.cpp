@@ -54,6 +54,12 @@ int main(int ac, char *av[])
                     stack.push(res);
                     break;
                 case '/':
+                    if (res == 0)
+                    {
+                        std::cerr << "ERROR:DIVISION BY 0\n";
+                        return (1);
+                    }
+
                     res = stack.top() / res;
                     stack.pop();
                     stack.push(res);

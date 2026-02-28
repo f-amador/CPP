@@ -6,7 +6,7 @@
 /*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:41:56 by framador          #+#    #+#             */
-/*   Updated: 2025/06/06 10:43:42 by framador         ###   ########.fr       */
+/*   Updated: 2026/02/21 16:12:51 by framador         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap()
 	std::cout << "ClapTrap Constructor called\n";
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(100), _energyPoints(100), _damage(30)
+ClapTrap::ClapTrap(std::string name, unsigned int energy, unsigned int hitpoints, unsgined int damage): _name(name), _hitPoints(100), _energyPoints(100), _damage(30)
 {
 
 	std::cout << "ClapTrap has been constructed\n";

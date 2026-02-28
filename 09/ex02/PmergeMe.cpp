@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: framador <framador@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/10 15:32:12 by framador          #+#    #+#             */
+/*   Updated: 2026/02/10 15:32:13 by framador         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
 static std::vector<size_t> buildInsertionOrder(size_t pairCount)
@@ -162,8 +174,6 @@ void PmergeMe::fordJohnsonSortVector(std::vector<int> &arr)
     // for (int i = 0; i < static_cast<int>(maxima.size()); ++i)
     // {
     //      std::cout << "Maxima " << i << ": " << maxima[i] << "\n";
-    // }
-    fordJohnsonSortVector(maxima); // recursion on half-size problem
 
     // Reorder pairs according to sorted maxima in O(n log n + n)
     std::vector<std::pair<int,int> > pairsSorted = pairs;
